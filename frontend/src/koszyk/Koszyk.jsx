@@ -7,6 +7,8 @@ import iconLogo from "../assets/logo.png";
 import iconAcc from "../assets/account.png";
 import iconSample from "../assets/Sample.png";
 import iconProt from "../assets/Elogo.png";
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 const CartItem = ({ title, price }) => (
   <div className="item">
@@ -159,48 +161,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <nav className="navbar">
-        <a href="/" className="nav-logo">
-          <img src={iconLogo} alt="Logo" />
-        </a>
-
-        <ul className="nav-menu">
-          <li>
-            <a href="#kreator">Kreator</a>
-          </li>
-          <li>
-            <a href="#blog">Blog</a>
-          </li>
-        </ul>
-
-        <div className="nav-actions">
-          <a
-            href="ulubione"
-            className="nav-icon"
-            onClick={() => console.log("ulubione")}
-          >
-            <img
-              src={iconFavourite}
-              alt="ulubione"
-              className="nav-iconFav-img"
-            />
-          </a>
-          <a
-            href="koszyk"
-            className="nav-icon"
-            onClick={() => console.log("koszyk")}
-          >
-            <img src={iconCart} alt="koszyk" className="nav-iconCart-img" />
-          </a>
-          <a
-            href="konto"
-            className="nav-icon"
-            onClick={() => console.log("konto")}
-          >
-            <img src={iconAcc} alt="konto" className="nav-iconAcc-img" />
-          </a>
-        </div>
-      </nav>
+      <Navbar />
       <div className="cart-page-container">
         <div className="cart-layout">
           {/* LEWA STRONA: KOSZYK I PROPOZYCJE */}
@@ -303,6 +264,7 @@ function App() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

@@ -36,6 +36,7 @@ function LoginForm() {
 
       console.log("Odpowiedź z backendu:", result);
       localStorage.setItem("token", result.access_token);
+      navigate("/");
       
 
       setMessage("Dane zostały wysłane poprawnie.");

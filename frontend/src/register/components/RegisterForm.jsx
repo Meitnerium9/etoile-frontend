@@ -84,8 +84,25 @@ try {
 
     console.log("Rejestracja udana:", result);
 
+    const loginData = {
+      email: formData.email,
+      password: formData.password,
+    };
+
+    const responseLogin = await fetch("http://localhost:8000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(loginData),
+      });
+
+    const resultLogin = await responseLogin.json();
+
+    localStorage.setItem("token", resultLogin.access_token);
+
     clearForm();
-    navigate("/login");
+    navigate("/");
 
   } catch (error) {
     console.error("Błąd połączenia:", error);
