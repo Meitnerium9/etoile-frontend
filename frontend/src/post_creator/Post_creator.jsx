@@ -1,8 +1,8 @@
 import { useState, useRef } from "react";
-import "./App.css";
-import Navbar from "./components/Navbar"; // Navbar zostaje w osobnym pliku, tak jak chciałeś wcześniej
+import "./Post_creator.css";
+import Navbar from "../components/Navbar"; // Navbar zostaje w osobnym pliku, tak jak chciałeś wcześniej
 
-function App() {
+function Post_creator() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
@@ -80,4 +80,4 @@ function App() {
   );
 }
 
-export default App;
+export default Post_creator;

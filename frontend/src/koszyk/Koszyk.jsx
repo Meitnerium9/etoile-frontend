@@ -7,8 +7,8 @@ import iconLogo from "../assets/logo.png";
 import iconAcc from "../assets/account.png";
 import iconSample from "../assets/Sample.png";
 import iconProt from "../assets/Elogo.png";
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const CartItem = ({ title, price }) => (
   <div className="item">
