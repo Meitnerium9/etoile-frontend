@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Koszyk.css";
 
 import iconFavourite from "../assets/ulubione.png";
-import iconCart from "../assets/Cart.png";
+import iconCart from "../assets/cart.png";
 import iconLogo from "../assets/logo.png";
 import iconAcc from "../assets/account.png";
 import iconSample from "../assets/Sample.png";
