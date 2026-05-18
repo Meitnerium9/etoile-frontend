@@ -79,7 +79,6 @@
 .cart-page-container {
   background-color: #f9faf5; /* Tło strony jak na zrzucie */
   padding: 30px 2%;
-  min-height: calc(100vh - var(--navbar-height));
 }
 
 .cart-layout {
