@@ -1,0 +1,172 @@
+.blog-page {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #f8f6f1;
+  padding: 30px 24px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  color: #1f1f1f;
+}
+
+.blog-container {
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* tutul */
+
+.blog-main-title {
+  margin: 0 0 20px 0;
+  font-size: 42px;
+  font-weight: 400;
+  color: #1f1f1f;
+  font-family: Georgia, serif;
+  text-align: left;
+}
+
+/* dodaj post */
+
+.blog-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.blog-add-post-button {
+  height: 52px;
+  width: 280px;
+  padding: 0 24px;
+  border: none;
+  background-color: #0a1128;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background-color 0.2s ease;
+}
+
+.blog-add-post-button:hover {
+  background-color: #162041;
+}
+
+/* post */
+
+.blog-post-card {
+  margin-bottom: 36px;
+}
+
+.blog-post-content {
+  display: flex;
+  gap: 22px;
+  align-items: flex-start;
+}
+
+.blog-post-image {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border: 1px solid #d8d3ca;
+  flex-shrink: 0;
+}
+
+.blog-post-right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.blog-post-title {
+  margin: 0 0 12px 0;
+  color: #1f1f1f;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.15;
+  font-family: Georgia, serif;
+  text-align: left;
+}
+
+.blog-post-excerpt {
+  margin: 0;
+  color: #2f2f2f;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.blog-post-read-more {
+  margin-top: 14px;
+  text-align: right;
+  color: #0a1128;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.blog-post-read-more:hover {
+  text-decoration: underline;
+}
+
+.blog-post-divider {
+  margin-top: 18px;
+  border-bottom: 1.5px solid #ddd7cc;
+}
+
+/* mobilka */
+
+@media (max-width: 700px) {
+  .blog-page {
+    padding: 24px 0;
+  }
+
+  .blog-container {
+    padding: 0 18px;
+  }
+
+  .blog-main-title {
+    font-size: 34px;
+  }
+
+  .blog-actions {
+    justify-content: stretch;
+  }
+
+  .blog-add-post-button {
+    width: 100%;
+  }
+
+  .blog-post-content {
+    flex-direction: column;
+  }
+
+  .blog-post-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .blog-post-title {
+    font-size: 24px;
+  }
+
+  .blog-post-excerpt {
+    font-size: 14px;
+  }
+
+  .blog-post-read-more {
+    text-align: left;
+  }
+}
+
+@media (max-width: 420px) {
+  .blog-main-title {
+    font-size: 28px;
+  }
+
+  .blog-post-title {
+    font-size: 20px;
+  }
+}
