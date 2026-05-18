@@ -1,9 +1,9 @@
 export default function AddPostButton() {
   return (
     <div className="blog-actions">
-      <button type="button" className="blog-add-post-button">
+      <a className="blog-add-post-button" href="/postCreator">
         Dodaj post +
-      </button>
+      </a>
     </div>
   );
 }

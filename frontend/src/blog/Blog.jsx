@@ -6,6 +6,8 @@ import BlogHeader from "./component/BlogHeader.jsx";
 import AddPostButton from "./component/AddPostButton.jsx";
 import BlogPostList from "./component/BlogPostList.jsx";
 import BlogPostPage from "./component/BlogPostPage.jsx";
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 export default function Blog() {
   return (
@@ -16,9 +18,11 @@ export default function Blog() {
             index 
             element={
               <>
+                  <Navbar />
                 <BlogHeader />
                 <AddPostButton />
                 <BlogPostList />
+                  <Footer />
               </>
             }
           />
