@@ -227,7 +227,7 @@ function App() {
               <div className="summary-line">
                 <span>Dostawa od</span>
                 {/* Wyświetlamy z przecinkiem dla użytkownika jako tekst */}
-                <span>14,99 zł</span>
+                <span>{produktyWKoszyku.length == 0 ? "0 zł" : "14,99 zł"}</span>
               </div>
 
               <hr className="divider-line" />
@@ -236,7 +236,7 @@ function App() {
                 <span>Razem z dostawą</span>
                 <span className="final-price">
                   {/* Dodajemy sumę produktów i koszt dostawy */}
-                  {(sumaProduktow + kosztDostawy)
+                  {produktyWKoszyku.length == 0 ? "0" : (sumaProduktow + kosztDostawy)
                     .toFixed(2)
                     .replace(".", ",")}{" "}
                   zł
