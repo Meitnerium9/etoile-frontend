@@ -1,3 +1,4 @@
 Aby uruchomić:
-
-`docker compose up --build`
+```
+docker compose up --build
+```
