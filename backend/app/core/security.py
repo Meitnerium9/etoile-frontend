@@ -1,6 +1,14 @@
 from datetime import datetime, timedelta
 from jose import jwt
 from passlib.context import CryptContext
+from fastapi import Depends
+from fastapi.security import OAuth2PasswordBearer
+from fastapi import Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
+from jose import jwt, JWTError
+from sqlalchemy.orm import Session
+from app.db.session import get_db
+from app.models.user import User
 from app.core.config import SECRET_KEY, ALGORITHM
 
 pwd_context = CryptContext(schemes=["bcrypt"])
@@ -17,6 +25,8 @@ def create_token(user_id: int):
         "exp": datetime.utcnow() + timedelta(hours=24*7)
     }
     return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     credentials_exception = HTTPException(
