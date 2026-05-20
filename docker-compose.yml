@@ -16,7 +16,6 @@ services:
         restart: unless-stopped
         stdin_open: true
         tty: true
-        command: ["bash", "/workspace/init.sh"]
         networks:
             main:  
                 ipv4_address: 192.168.0.2
@@ -36,7 +35,6 @@ services:
         restart: unless-stopped
         stdin_open: true
         tty: true
-        command: ["ash", "/workspace/init.sh"]
         networks:
             main:  
                 ipv4_address: 192.168.0.3

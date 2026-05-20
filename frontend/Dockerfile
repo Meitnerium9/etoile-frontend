@@ -1,8 +1,9 @@
-FROM node:25.8.1-bookworm
+FROM node:25-alpine
 
-RUN apt-get update \
-    && apt-get install -y bash \
-    && npm install -g create-vite@5.2.0 \
-    && rm -rf /var/lib/apt/lists/*
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm install -g
+RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace
+
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
