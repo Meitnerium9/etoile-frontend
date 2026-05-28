@@ -52,32 +52,31 @@ function Favorites() {
 	return (
 		<div className="app-container">
 			<Navbar />
-			<div className="cart-page-container">
-				<div className="cart-layout">
-					{/* LEWA STRONA: LISTA I PROPOZYCJE */}
-					<div className="cart-main">
-						<h1 className="cart-heading">Ulubione</h1>
+			<div className="fav-page-container">
+				<div className="fav-layout">
+					<div className="fav-main">
+						<h1 className="fav-heading">Ulubione</h1>
 
-						<div className="white-card shadow">
+						<div className="fav-white-card fav-shadow">
 							<FavoritesHeader
 								products={products}
 								onToggleAll={handleToggleAll}
 								onRemoveSelected={handleRemoveSelected}
 							/>
 
-							<div className="delivery-section">
-								{products.map((product) => (
+							<div className="fav-delivery-section">
+								{products.map((item) => (
 									<FavoritesItem
-										key={product.id}
-										product={product}
-										onToggleCheck={() => handleToggleCheck(product.id)}
+										key={item.id}
+										product={item}
+										onToggleCheck={() => handleToggleCheck(item.id)}
 									/>
 								))}
 							</div>
 						</div>
 
-						<h2 className="upsell-heading">Zainspirowane Twoimi ulubionymi</h2>
-						<div className="upsell-grid">
+						<h2 className="fav-upsell-heading">Zainspirowane Twoimi ulubionymi</h2>
+						<div className="fav-upsell-grid">
 							{suggestedProducts.map((item) => (
 								<FavoritesSuggestions key={item.id} product={item} />
 							))}

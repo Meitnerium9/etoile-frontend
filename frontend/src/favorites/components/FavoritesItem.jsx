@@ -1,26 +1,25 @@
 import React from "react";
-import iconSample from "../../assets/Sample.png"; // Używamy tego samego assetu co w koszyku
+import iconSample from "../../assets/Sample.png";
 
 const FavoritesItem = ({ product, onToggleCheck }) => {
 	return (
-		<div className="cart-product">
-			{/* Gwiazdka jako checkbox identyczna jak w koszyku */}
-			<label className="star-checkbox">
+		<div className="fav-product">
+			<label className="fav-star-checkbox">
 				<input type="checkbox" checked={product.checked} onChange={onToggleCheck} />
-				<span className="star-icon"></span>
+				<span className="fav-star-icon"></span>
 			</label>
 
-			<a href="/" className="cart-koszyk">
+			<a href="/" className="fav-preview-box">
 				<img src={iconSample} alt="produkt" />
 			</a>
 
-			<div className="product-info">
-				<p className="product-name">{product.title}</p>
-				<span className="seller-tag">od {product.seller}</span>
-				<div className="product-row" style={{ marginTop: "10px" }}>
-					<span className="price-big">{product.price} zł</span>
+			<div className="fav-product-info">
+				<p className="fav-product-name">{product.title}</p>
+				<span className="fav-seller-tag">od {product.seller}</span>
+				<div className="fav-product-row" style={{ marginTop: "10px" }}>
+					<span className="fav-price-big">{product.price} zł</span>
 					<button
-						className="btn-etoile green"
+						className="fav-btn-etoile fav-green"
 						style={{ width: "auto", padding: "8px 20px", margin: 0 }}>
 						DO KOSZYKA
 					</button>

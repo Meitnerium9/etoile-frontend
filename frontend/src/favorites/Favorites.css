@@ -1,160 +1,114 @@
 /* Główne style kontenerów strony Ulubionych */
-.cart-page-container {
+.fav-page-container {
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 2rem;
 	text-align: left;
 }
 
-.cart-layout {
+.fav-layout {
 	display: flex;
 	gap: 30px;
 }
 
-.cart-main {
+.fav-main {
 	flex: 1;
 }
 
-.cart-heading {
+.fav-heading {
 	font-size: 2rem;
 	font-weight: 700;
 	margin-bottom: 1.5rem;
 	color: #111;
 }
 
-.white-card {
+.fav-white-card {
 	background: #fff;
 	border-radius: 16px;
 	padding: 24px;
 	margin-bottom: 30px;
 }
 
-.shadow {
+.fav-shadow {
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Górny pasek zarządzania listą ulubionych */
-.cart-top-bar {
+/* Górny pasek z usuwaniem zaznaczonych */
+.fav-top-bar {
+	font-size: 20px;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	border-bottom: 1px solid #eee;
-	padding-bottom: 16px;
-	margin-bottom: 16px;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
 }
 
-.text-btn {
+.fav-text-btn {
 	background: none;
 	border: none;
-	color: #888;
+	color: #00a5a5;
+	font-size: 13px;
 	font-weight: 600;
-	font-size: 0.85rem;
 	cursor: pointer;
-	letter-spacing: 0.5px;
-	transition: color 0.2s;
+	text-transform: uppercase;
+	padding: 0;
+	transition: 0.2s;
 }
 
-.text-btn:hover {
-	color: #ff4d4d;
+.fav-text-btn:hover {
+	color: #007a7a;
+	text-decoration: underline;
 }
 
-/* Struktura pojedynczego produktu na liście ulubionych */
-.delivery-section {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-}
-
-.cart-product {
+/* Gwiazdka jako checkbox */
+.fav-star-checkbox {
 	display: flex;
 	align-items: center;
-	padding: 16px 0;
-	border-bottom: 1px solid #f9f9f9;
-}
-
-.cart-product:last-child {
-	border-bottom: none;
-}
-
-.cart-koszyk {
-	width: 90px;
-	height: 90px;
-	border-radius: 12px;
-	overflow: hidden;
-	background: #f5f5f5;
-	margin: 0 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.cart-koszyk img {
-	max-width: 100%;
-	max-height: 100%;
-	object-fit: cover;
-}
-
-.product-info {
-	flex: 1;
-}
-
-.product-name {
-	font-weight: 600;
-	font-size: 1.05rem;
-	margin: 0 0 4px 0;
-	color: #222;
-}
-
-.seller-tag {
-	font-size: 0.85rem;
-	color: #888;
-}
-
-.product-row {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.price-big {
-	font-size: 1.4rem;
-	font-weight: 700;
-	color: #111;
-}
-
-/* Przyciski akcji (Dodaj do koszyka) */
-.btn-etoile {
-	border-radius: 30px;
-	font-weight: 600;
-	border: none;
-	cursor: pointer;
-	transition: opacity 0.2s;
-}
-
-.btn-etoile.green {
-	background: #27ae60;
-	color: #fff;
-}
-
-.btn-etoile:hover {
-	opacity: 0.9;
-}
-
-/* Magiczne gwiazdki jako przyciski zaznaczania */
-.star-checkbox {
-	display: flex;
-	align-items: center;
+	gap: 8px;
 	cursor: pointer;
 }
 
-.star-checkbox input {
-	display: none;
+.fav-star-checkbox input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
 }
 
-.star-icon {
+.fav-star-icon {
+	display: inline-block;
+	position: relative;
 	width: 24px;
 	height: 24px;
-	background-color: #ddd;
+	cursor: pointer;
+	vertical-align: middle;
+	transition:
+		transform 0.2s,
+		rotate 0.3s ease;
+	margin-right: 8px;
+}
+
+.fav-star-napis {
+	top: 5px;
+	text-transform: uppercase;
+}
+
+/* Animacja i obrót gwiazdki z koszyka */
+.fav-star-checkbox:hover .fav-star-icon {
+	transform: scale(1.2);
+	rotate: 20deg;
+}
+
+.fav-star-icon::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	border: 15px solid #ccc;
 	clip-path: polygon(
 		50% 0%,
 		61% 35%,
@@ -167,92 +121,217 @@
 		2% 35%,
 		39% 35%
 	);
-	transition: background-color 0.2s;
-	display: inline-block;
+	transition:
+		background-color 0.2s,
+		border-color 0.2s;
+	box-sizing: border-box;
 }
 
-.star-checkbox input:checked + .star-icon {
-	background-color: #f1c40f; /* Kolor złoty po zaznaczeniu */
+.fav-star-checkbox input:checked ~ .fav-star-icon::before {
+	background-color: #0a1a4e;
+	border-color: #0a1a4e;
 }
 
-.star-napis {
-	margin-left: 8px;
-	font-weight: 600;
-	font-size: 0.9rem;
-	color: #555;
-}
-
-/* Dolna siatka z sugestiami ("Zainspirowane Twoimi ulubionymi") */
-.upsell-heading {
-	font-size: 1.5rem;
-	font-weight: 700;
-	margin: 40px 0 20px 0;
-}
-
-.upsell-grid {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+/* Struktura elementu produktu na liście */
+.fav-delivery-section {
+	display: flex;
+	flex-direction: column;
 	gap: 20px;
 }
 
-.upsell-box {
-	background: #fff;
-	border-radius: 16px;
-	padding: 16px;
+.fav-product {
 	display: flex;
-	flex-direction: column;
-	text-align: center;
+	gap: 15px;
+	align-items: flex-start;
+	margin-bottom: 10px;
 }
 
-.upsell-img {
+.fav-preview-box {
+	width: 100px;
+	height: 100px;
+	background: white;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.fav-preview-box img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.fav-product-info {
+	flex: 1;
+}
+
+.fav-product-name {
+	font-size: 14px;
+	text-align: LEFT;
+	margin-bottom: 15px;
+}
+
+.fav-seller-tag {
+	font-size: 12px;
+	color: #666;
+}
+
+.fav-product-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.fav-price-big {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+/* Przyciski w stylu Etoile */
+.fav-btn-etoile {
+	padding: 10px 24px;
+	border: none;
+	border-radius: 4px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.fav-btn-etoile.fav-green {
+	background: #a39172;
+	color: white;
+	font-size: 14px;
+}
+
+.fav-btn-etoile.fav-green:hover {
+	background: #c4ae89;
+}
+
+/* Sekcja produktów polecanych (Upsell Grid) */
+.fav-upsell-heading {
+	font-size: 20px;
+	color: #0a1a4e;
+	text-align: left;
+	font-family: "Canta one", serif;
+	margin: 40px 0;
+}
+
+.fav-upsell-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 15px;
+}
+
+.fav-upsell-box {
+	background: white;
+	padding: 15px;
+	text-align: center;
+	width: 100%;
+}
+
+.fav-upsell-img {
 	height: 140px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin-bottom: 12px;
+	margin-bottom: 10px;
 }
 
-.upsell-img img {
+.fav-upsell-img img {
 	max-height: 100%;
-	object-fit: containment;
+	object-fit: contain;
 }
 
-.price-mid {
-	font-size: 1.15rem;
-	font-weight: 700;
-	margin: 4px 0;
+.fav-price-mid {
+	font-weight: bold;
+	margin: 5px 0;
 }
 
-.upsell-text {
-	font-size: 0.85rem;
-	color: #555;
-	margin: 0 0 16px 0;
-	height: 34px;
+.fav-upsell-text {
+	font-size: 11px;
+	color: #00a5a5;
+	height: 30px;
 	overflow: hidden;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
 }
 
-.add-btn {
-	background: #111;
-	color: #fff;
+.fav-add-btn {
+	background: none;
 	border: none;
-	border-radius: 30px;
-	padding: 10px;
-	font-weight: 600;
-	font-size: 0.8rem;
+	color: #a1b0e6;
+	font-weight: bold;
 	cursor: pointer;
-	transition: background 0.2s;
+	margin-top: 10px;
 }
 
-.add-btn:hover {
-	background: #333;
+.fav-add-btn:hover {
+	color: #0a1a4e;
 }
 
-/* Responsywność dla mniejszych ekranów */
-@media (max-width: 900px) {
-	.upsell-grid {
-		grid-template-columns: repeat(2, 1fr);
+/* Responsywność (Przewijanie poziome z Twojego kodu) */
+@media (max-width: 768px) {
+	.fav-heading {
+		font-size: 22px;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+
+	.fav-top-bar {
+		font-size: 14px;
+	}
+
+	.fav-product-name {
+		font-size: 13px;
+		line-height: 1.3;
+	}
+
+	.fav-price-big {
+		font-size: 18px;
+	}
+
+	.fav-preview-box {
+		width: 70px;
+		height: 70px;
+	}
+
+	.fav-white-card {
+		padding: 12px;
+		margin-bottom: 10px;
+	}
+
+	.fav-layout {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.fav-upsell-heading {
+		font-size: 16px;
+		margin: 15px 0 8px 0;
+	}
+
+	.fav-upsell-grid {
+		display: flex;
+		overflow-x: auto;
+		gap: 10px;
+		padding-bottom: 10px;
+		scroll-snap-type: x mandatory;
+		-webkit-overflow-scrolling: touch;
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.fav-upsell-grid::-webkit-scrollbar {
+		display: none;
+	}
+
+	.fav-upsell-box {
+		flex: 0 0 45%;
+		scroll-snap-align: start;
+		padding: 8px;
+		height: auto;
+	}
+
+	.fav-upsell-img img {
+		height: 55px;
+		width: 100%;
 	}
 }
