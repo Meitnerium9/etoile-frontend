@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./Koszyk.css";
 
 import iconSample from "../assets/Sample.png";
@@ -6,6 +6,8 @@ import iconProt from "../assets/Elogo.png";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useTitle } from "../main.jsx";
+import Platnosc from "./placeholders/Platnosc.jsx";
+import Dostawa from "./placeholders/Dostawa.jsx";
 
 const CartItem = ({ title, price }) => (
 	<div className="item">
@@ -148,7 +150,11 @@ function App() {
 		(acc, curr) => acc + Number(curr.cena) * curr.ilosc,
 		0
 	);
-	const kosztDostawy = 14.99;
+
+	const [kosztDostawy, setKosztDostawy] = useState(12.99);
+	const handleKosztDostawy = (element) => {
+		setKosztDostawy(element);
+	};
 
 	useTitle("Etoile - Koszyk");
 	return (
@@ -202,6 +208,8 @@ function App() {
 							</div>
 						</div>
 
+						<Dostawa outRef={handleKosztDostawy} />
+
 						<h2 className="upsell-heading">Dorzuć do przesyłki!</h2>
 						<div className="upsell-grid">
 							{/* GENEROWANIE LISTY: Mapujemy tablicę na komponenty */}
@@ -222,13 +230,17 @@ function App() {
 							<div className="summary-line">
 								<span>Dostawa od</span>
 								{/* Wyświetlamy z przecinkiem dla użytkownika jako tekst */}
-								<span>{produktyWKoszyku.length == 0 ? "0 zł" : "14,99 zł"}</span>
+								<span>
+									{produktyWKoszyku.length == 0 ? "0 zł" : `${kosztDostawy} zł`}
+								</span>
 							</div>
 
 							<hr className="divider-line" />
 
+							<Platnosc />
+
 							<div className="summary-line total-line">
-								<span>Razem z dostawą</span>
+								<span>Do zapłaty</span>
 								<span className="final-price">
 									{/* Dodajemy sumę produktów i koszt dostawy */}
 									{produktyWKoszyku.length == 0
