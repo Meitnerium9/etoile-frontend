@@ -43,7 +43,7 @@ function Favorites() {
 
 			const response = await fetch("http://localhost:8000/favorites/", {
 				headers: {
-					Authorization: `Bearer ${token}`,
+					token: localStorage.getItem("token"),
 				},
 			});
 
@@ -61,6 +61,8 @@ function Favorites() {
 				price: item.price || 0,
 				seller: item.seller || "Etoile_Jewelry",
 			}));
+
+			console.log(favorites);
 
 			setProducts(favorites);
 		} catch (err) {
@@ -98,7 +100,7 @@ function Favorites() {
 					fetch(`http://localhost:8000/favorites/${item.favorite_id}`, {
 						method: "DELETE",
 						headers: {
-							Authorization: `Bearer ${token}`,
+							token: localStorage.getItem("token"),
 						},
 					})
 				)

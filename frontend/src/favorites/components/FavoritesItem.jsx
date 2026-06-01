@@ -8,11 +8,11 @@ const FavoritesItem = ({ product, onToggleCheck }) => {
 				<input type="checkbox" checked={product.checked} onChange={onToggleCheck} />
 				<span className="fav-star-icon"></span>
 			</label>
-
-			<a href="/" className="fav-preview-box">
+			<a
+				href={product.project_id == null ? "/" : `../blog/${product.project_id}`}
+				className="fav-preview-box">
 				<img src={iconSample} alt="produkt" />
 			</a>
-
 			<div className="fav-product-info">
 				<p className="fav-product-name">{product.title}</p>
 				<span className="fav-seller-tag">od {product.seller}</span>

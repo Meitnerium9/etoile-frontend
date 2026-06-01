@@ -1,6 +1,6 @@
 .creator-buttons-row {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
+	justify-content: center;
 	gap: 28px;
 	margin-top: 20px;
 	width: 100%;
@@ -9,6 +9,7 @@
 .creator-favorite-button,
 .creator-cart-button {
 	height: 60px;
+	max-width: 500px;
 	border: 2px solid #27314f;
 	background-color: #f8f6f1;
 	display: flex;

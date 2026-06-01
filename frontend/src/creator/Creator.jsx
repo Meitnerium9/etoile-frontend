@@ -58,15 +58,13 @@ function Creator() {
 	const totalPrice = basePrice + charmsPrice + lengthPrice + metalPrice;
 
 	const finishProjectApi = async (projectData) => {
-		const token = localStorage.getItem("token");
-
 		// Adres URL jest teraz czysty, nie doklejamy już do niego parametrów "?token="
-		const response = await fetch("http://localhost:8000/projects/create", {
+		const response = await fetch("http://localhost:8000/projects/", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
 				// Wysyłamy nagłówek autoryzacji identycznie jak w ulubionych!
-				Authorization: token ? `Bearer ${token}` : "",
+				token: localStorage.getItem("token"),
 			},
 			body: JSON.stringify(projectData),
 		});
@@ -136,25 +134,25 @@ function Creator() {
 						/>
 					</div>
 
-							<JewelryTypeSelector
-								selectedType={selectedType}
-								setSelectedType={setSelectedType}
-							/>
+					<JewelryTypeSelector
+						selectedType={selectedType}
+						setSelectedType={setSelectedType}
+					/>
 
-							<MaterialSelector
-								selectedMaterial={selectedMaterial}
-								setSelectedMaterial={setSelectedMaterial}
-								isOpen={isOpen}
-								setIsOpen={setIsOpen}
-							/>
+					<MaterialSelector
+						selectedMaterial={selectedMaterial}
+						setSelectedMaterial={setSelectedMaterial}
+						isOpen={isOpen}
+						setIsOpen={setIsOpen}
+					/>
 
-							<LengthSelector
-								selectedType={selectedType}
-								selectedLength={selectedLength}
-								setSelectedLength={setSelectedLength}
-								isLengthOpen={isLengthOpen}
-								setIsLengthOpen={setIsLengthOpen}
-							/>
+					<LengthSelector
+						selectedType={selectedType}
+						selectedLength={selectedLength}
+						setSelectedLength={setSelectedLength}
+						isLengthOpen={isLengthOpen}
+						setIsLengthOpen={setIsLengthOpen}
+					/>
 
 					<CharmsSelector
 						selectedCharm1={selectedCharm1}

@@ -7,9 +7,6 @@ from app.models.project import CustomProject
 from app.schemas.project import ProjectCreate
 from app.core.security import get_current_user
 
-
-from app.api.routes.favorites import get_current_user_id_for_favorites
-
 router = APIRouter()
 
 @router.post("/")
@@ -23,5 +20,5 @@ def create_project(project: ProjectCreate, token: Annotated[str | None, Header()
     )
     db.add(new_project)
     db.commit()
-    db.refresh(db_project)
-    return {"msg": "Projekt zapisany", "project_id": db_project.project_id}
+    db.refresh(new_project)
+    return {"msg": "Projekt zapisany", "project_id": new_project.project_id}

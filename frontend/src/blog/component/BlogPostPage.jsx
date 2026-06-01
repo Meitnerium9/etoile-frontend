@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-
-import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import defaultPostImage from "../images/post1.jpg";
 import "./BlogPostPage.css";
@@ -8,9 +6,42 @@ import "./BlogPostPage.css";
 export default function BlogPostPage() {
 	const { id } = useParams();
 
-	const post = posts.find((post) => post.id === Number(id));
+	const [post, setPost] = useState(null);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState("");
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [favoriteId, setFavoriteId] = useState(null);
+
+	useEffect(() => {
+		async function fetchPost() {
+			try {
+				setLoading(true);
+				setError("");
+
+				const response = await fetch(`http://localhost:8000/posts/${id}`);
+
+				if (response.status === 404) {
+					throw new Error("Nie znaleziono posta.");
+				}
+
+				if (!response.ok) {
+					const errorText = await response.text();
+					throw new Error(
+						`Nie udało się pobrać posta. Status: ${response.status}. ${errorText}`
+					);
+				}
+
+				const data = await response.json();
+				setPost(data);
+			} catch (err) {
+				setError(err.message);
+			} finally {
+				setLoading(false);
+			}
+		}
+
+		fetchPost();
+	}, [id]);
 
 	useEffect(() => {
 		const loadFavorites = async () => {
@@ -28,20 +59,20 @@ export default function BlogPostPage() {
 
 				const data = await response.json();
 
-				const favorite = data.find((f) => f.product_id === post?.id);
+				console.log(data);
 
-				if (favorite) {
+				console.log("Znaleziony ulubiony:", data);
+				if (data.length > 0) {
+					console.log("Znaleziony ulubiony:", data);
 					setIsFavorite(true);
-					setFavoriteId(favorite.favorite_id);
+					setFavoriteId(data[0].favorite_id);
 				}
 			} catch (err) {
 				console.error(err);
 			}
 		};
 
-		if (post) {
-			loadFavorites();
-		}
+		loadFavorites();
 	}, [post]);
 
 	const toggleFavorite = async () => {
@@ -73,7 +104,7 @@ export default function BlogPostPage() {
 					},
 					body: JSON.stringify({
 						product_id: null,
-						project_id: post.id,
+						project_id: id,
 					}),
 				});
 
