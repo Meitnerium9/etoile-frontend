@@ -17,7 +17,7 @@ export default function Contact() {
 				<span>Telefon:</span>
 				<p>
 					Telefon:
-					<a href="tel:+48535592918"> 535592918</a>
+					<a href="tel:+48123456789"> 123456789</a>
 				</p>
 			</div>
 		</dialog>
