@@ -9,3 +9,8 @@ class CustomProject(Base):
     name = Column(String)
     total_price = Column(Float)
     created_at = Column(DateTime)
+    category_id = Column(Integer)
+    metal = Column(String)
+    project_size = Column(Integer)
+    trinket1 = Column(String)
+    trinket2 = Column(String)

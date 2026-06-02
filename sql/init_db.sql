@@ -20,7 +20,11 @@ CREATE TABLE Products (
     name VARCHAR(255) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     image_path VARCHAR(500),
-    stock INT DEFAULT 0
+    stock INT DEFAULT 0,
+    metal VARCHAR(50) not null,
+    project_size int not null,
+    trinket1 VARCHAR(50) not null,
+    trinket2 VARCHAR(50)
 );
 
 CREATE TABLE Custom_Projects (
@@ -28,7 +32,12 @@ CREATE TABLE Custom_Projects (
     user_id INT REFERENCES Users(user_id),
     name VARCHAR(255) NOT NULL,
     total_price DECIMAL(10, 2) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    category_id INT,
+    metal VARCHAR(50) not null,
+    project_size int not null,
+    trinket1 VARCHAR(50) not null,
+    trinket2 VARCHAR(50)
 );
 
 CREATE TABLE Orders (
@@ -39,13 +48,6 @@ CREATE TABLE Orders (
 );
 
 -- Tabele z zależnościami 2-go stopnia
-CREATE TABLE Project_Elements (
-    project_element_id SERIAL PRIMARY KEY,
-    project_id INT REFERENCES Custom_Projects(project_id) ON DELETE CASCADE,
-    product_id INT REFERENCES Products(product_id),
-    quantity INT NOT NULL DEFAULT 1
-);
-
 CREATE TABLE Cart (
     cart_item_id SERIAL PRIMARY KEY,
     user_id INT REFERENCES Users(user_id),

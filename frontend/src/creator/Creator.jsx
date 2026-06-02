@@ -12,6 +12,7 @@ import JewelryPreview from "./componenty/JewelryPreview.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import { useTitle } from "../main.jsx";
+import { materials } from "./materialsData.js";
 
 function Creator() {
 	// Istniejące stany konfiguracji
@@ -84,9 +85,15 @@ function Creator() {
 			// Wysyłamy wyłącznie to, czego żąda nowa klasa ProjectCreate
 			const payload = {
 				name: projectName,
-				total_price: totalPrice / 100, // Jeśli operujesz na groszach w kreatorze (np. 5600 -> 56.0)
-				created_at: new Date().toISOString(),
+				total_price: totalPrice, // Jeśli operujesz na groszach w kreatorze (np. 5600 -> 56.0)
+				category_id: selectedType == "bracelet" ? 2 : 1,
+				metal: materials[selectedMaterial - 1].name,
+				project_size: Number(selectedLength.split(" ")[0]),
+				trinket1: selectedCharm1,
+				trinket2: selectedCharm2,
 			};
+
+			console.log(payload);
 
 			const result = await finishProjectApi(payload);
 			alert(`${result.msg}! ID projektu: ${result.project_id}`);

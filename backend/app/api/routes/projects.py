@@ -16,7 +16,11 @@ def create_project(project: ProjectCreate, token: Annotated[str | None, Header()
         user_id=user_id,
         name = project.name,
         total_price = project.total_price,
-        created_at = project.created_at
+        category_id = project.category_id,
+        metal = project.metal,
+        project_size = project.project_size,
+        trinket1 = project.trinket1,
+        trinket2 = project.trinket2
     )
     db.add(new_project)
     db.commit()

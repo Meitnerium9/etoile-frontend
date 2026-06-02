@@ -56,6 +56,8 @@ function Favorites() {
 			const favorites = data.map((item) => ({
 				...item,
 				id: item.favorite_id,
+				product_id: item.product_id,
+				project_id: item.project_id,
 				checked: true,
 				title: item.title || `Ulubiony element #${item.favorite_id}`,
 				price: item.price || 0,
@@ -97,24 +99,98 @@ function Favorites() {
 		try {
 			await Promise.all(
 				selected.map((item) =>
-					fetch(`http://localhost:8000/favorites/${item.favorite_id}`, {
+					fetch(`http://localhost:8000/favorites/`, {
 						method: "DELETE",
 						headers: {
 							token: localStorage.getItem("token"),
+							"Content-Type": "application/json",
 						},
+						body: JSON.stringify({
+							favorite_id: item.favorite_id,
+						}),
 					})
 				)
 			);
-
-			setProducts((prev) => prev.filter((p) => !p.checked));
+			await fetchFavorites();
+			//setProducts((prev) => prev.filter((p) => !p.checked));
 		} catch (err) {
 			alert("Nie udało się usunąć zaznaczonych ulubionych.");
 		}
 	};
 
-	const handleAddSelectedToCart = () => {
+	const handleAddSelectedToCart = async () => {
+		const token = localStorage.getItem("token");
+
+		if (!token) {
+			alert("Musisz być zalogowany.");
+			return;
+		}
+
 		const selected = products.filter((p) => p.checked);
-		console.log("Dodawanie do koszyka:", selected);
+
+		if (selected.length === 0) return;
+
+		try {
+			const results = await Promise.all(
+				selected.map(async (item) => {
+					const payload = {
+						product_id: item.product_id,
+						project_id: item.project_id,
+						quantity: 1,
+					};
+
+					console.log("➡️ REQUEST:", payload);
+
+					const res = await fetch("http://localhost:8000/cart/", {
+						method: "POST",
+						headers: {
+							token,
+							"Content-Type": "application/json",
+						},
+						body: JSON.stringify(payload),
+					});
+
+					console.log("⬅️ STATUS:", res.status);
+
+					const text = await res.text(); // 🔥 ważne (nie json na start)
+					console.log("⬅️ RESPONSE:", text);
+
+					if (!res.ok) {
+						throw new Error(text);
+					}
+
+					return text;
+				})
+			);
+
+			console.log("✅ ALL DONE:", results);
+		} catch (err) {
+			console.error("❌ ERROR:", err);
+			alert("Nie udało się dodać zaznaczonych do koszyka.");
+		}
+	};
+
+	const handleAddToCart = async (item) => {
+		const token = localStorage.getItem("token");
+
+		const payload = {
+			product_id: item.product_id,
+			project_id: item.project_id,
+			quantity: 1,
+		};
+
+		console.log("➡️ ADD ONE ITEM:", payload);
+
+		const res = await fetch("http://localhost:8000/cart/", {
+			method: "POST",
+			headers: {
+				token,
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify(payload),
+		});
+
+		console.log("STATUS:", res.status);
 	};
 
 	const checkedCount = products.filter((p) => p.checked).length;
@@ -153,6 +229,7 @@ function Favorites() {
 											key={item.id}
 											product={item}
 											onToggleCheck={() => handleToggleCheck(item.id)}
+											onAddToCart={() => handleAddToCart(item)}
 										/>
 									))}
 							</div>

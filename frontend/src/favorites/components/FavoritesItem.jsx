@@ -1,7 +1,7 @@
 import React from "react";
 import iconSample from "../../assets/Sample.png";
 
-const FavoritesItem = ({ product, onToggleCheck }) => {
+const FavoritesItem = ({ product, onToggleCheck, onAddToCart }) => {
 	return (
 		<div className="fav-product">
 			<label className="fav-star-checkbox">
@@ -20,7 +20,8 @@ const FavoritesItem = ({ product, onToggleCheck }) => {
 					<span className="fav-price-big">{product.price} zł</span>
 					<button
 						className="fav-btn-etoile fav-green"
-						style={{ width: "auto", padding: "8px 20px", margin: 0 }}>
+						style={{ width: "auto", padding: "8px 20px", margin: 0 }}
+						onClick={onAddToCart}>
 						DO KOSZYKA
 					</button>
 				</div>

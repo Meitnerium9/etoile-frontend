@@ -139,10 +139,11 @@ export default function BlogPostPage() {
 
 			<div className="single-post-header">
 				<h1 className="single-post-title">{post.title}</h1>
-
-				<button className="favorite-btn" onClick={toggleFavorite}>
-					{isFavorite ? "★" : "☆"}
-				</button>
+				{localStorage.getItem("token") && (
+					<button className="favorite-btn" onClick={toggleFavorite}>
+						{isFavorite ? "★" : "☆"}
+					</button>
+				)}
 			</div>
 
 			<img src={defaultPostImage} alt={post.title} className="single-post-image" />
