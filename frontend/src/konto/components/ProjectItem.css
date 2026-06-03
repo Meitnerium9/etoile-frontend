@@ -1,0 +1,51 @@
+div.item {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	gap: 30px;
+	width: 100%;
+	align-items: center;
+}
+
+div.item:hover {
+	background-color: #efefef;
+}
+
+div.item img {
+	width: 100px;
+}
+
+div.item p.title {
+	font-weight: 700;
+	font-size: 30px;
+}
+
+div.item p.price {
+	font-size: 20px;
+}
+
+div.item button {
+	padding: 10px 20px;
+	border: none;
+	border-radius: 0;
+	font-size: 20px;
+}
+
+div.item button.delete {
+	background-color: #c51a1a;
+	color: #fff;
+}
+
+div.item button.delete:hover {
+	background-color: #e36666;
+}
+
+div.item button.add {
+	background-color: #0a1a4e;
+	color: #fff;
+}
+
+div.item button.add:hover {
+	background-color: #223fa3;
+	color: #fff;
+}

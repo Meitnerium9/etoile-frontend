@@ -1,9 +1,9 @@
-import "./Info.css";
+import "./Ustawienia.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTitle } from "../../main.jsx";
 
-export default function Info() {
+export default function Ustawienia() {
 	useTitle("Etoile - Panel użytkownika");
 
 	const navigate = useNavigate();

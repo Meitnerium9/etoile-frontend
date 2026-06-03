@@ -2,23 +2,26 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./Konto.css";
-import Info from "./components/Info.jsx";
+import Ustawienia from "./components/Ustawienia.jsx";
+import ProjectList from "./components/ProjectList.jsx";
 
 export default function Konto() {
+	if (localStorage.getItem("token") == null) return <Navigate to="/" replace />;
+
 	return (
 		<>
 			<Navbar />
 			<main>
 				<nav className="kontoNav">
-					<a href="./info">Info</a>
 					<a href="./ustawienia">Ustawienia</a>
+					<a href="./projekty">Moje projekty</a>
 				</nav>
 				<hr />
 				<Routes>
 					<Route path="/" element={<Navigate to="info" replace />} />
-					<Route path="info" element={<Info />} />
-					<Route path="ustawienia" element={<p>2</p>} />
-					<Route path="*" element={<Navigate to="/konto/info" replace />} />
+					<Route path="ustawienia" element={<Ustawienia />} />
+					<Route path="projekty" element={<ProjectList />} />
+					<Route path="*" element={<Navigate to="/konto/ustawienia" replace />} />
 				</Routes>
 			</main>
 			<Footer />
