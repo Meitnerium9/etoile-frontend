@@ -1,51 +1,51 @@
-/* Główne style kontenerów strony BuyLater */
-.bl-page-container {
+/* Główne style kontenerów strony OrderList */
+.ol-page-container {
 	background-color: #f9faf5;
 	width: 100%;
 	min-height: 100vh;
 	padding: 30px 0;
 }
 
-.bl-layout {
+.ol-layout {
 	display: flex;
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 0 20px;
-	gap: 30px; /* Przestrzeń między listą a podsumowaniem */
 	text-align: left;
 }
 
-.bl-main {
-	flex: 3; /* Większa część na produkty */
+.ol-main {
+	flex: 1;
 }
 
-.bl-sidebar {
-	flex: 1; /* Mniejsza boczna kolumna na podsumowanie */
-	position: sticky;
-	top: 20px; /* Przyklejanie panelu bocznego podczas przewijania */
-	height: fit-content;
-}
-
-.bl-heading {
+.ol-heading {
 	font-size: 2rem;
 	font-weight: 700;
 	margin-bottom: 1.5rem;
 	color: #111;
 }
 
-.bl-white-card {
+.ol-subheading {
+	font-size: 1.6rem;
+	font-weight: 600;
+	margin-top: 40px;
+	margin-bottom: 1.2rem;
+	color: #0a1a4e;
+}
+
+.ol-white-card {
 	background: #fff;
 	border-radius: 16px;
 	padding: 24px;
 	margin-bottom: 30px;
 }
 
-.bl-shadow {
+.ol-shadow {
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-/* Górny pasek z usuwaniem zaznaczonych */
-.bl-top-bar {
+/* Górny pasek zarządzania */
+.ol-top-bar {
 	font-size: 20px;
 	display: flex;
 	justify-content: space-between;
@@ -54,7 +54,7 @@
 	margin-bottom: 15px;
 }
 
-.bl-text-btn {
+.ol-text-btn {
 	background: none;
 	border: none;
 	color: #00a5a5;
@@ -66,20 +66,20 @@
 	transition: 0.2s;
 }
 
-.bl-text-btn:hover {
+.ol-text-btn:hover {
 	color: #007a7a;
 	text-decoration: underline;
 }
 
-/* Checkbox w stylu gwiazdki z Twojego projektu */
-.bl-star-checkbox {
+/* Gwiazdki jako checkbox */
+.ol-star-checkbox {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	cursor: pointer;
 }
 
-.bl-star-checkbox input {
+.ol-star-checkbox input {
 	position: absolute;
 	opacity: 0;
 	cursor: pointer;
@@ -87,7 +87,7 @@
 	width: 0;
 }
 
-.bl-star-icon {
+.ol-star-icon {
 	display: inline-block;
 	position: relative;
 	width: 24px;
@@ -100,19 +100,18 @@
 	margin-right: 8px;
 }
 
-.bl-star-napis {
-	top: 5px;
+.ol-star-napis {
 	text-transform: uppercase;
 	font-size: 13px;
 	color: #666;
 }
 
-.bl-star-checkbox:hover .bl-star-icon {
+.ol-star-checkbox:hover .ol-star-icon {
 	transform: scale(1.2);
 	rotate: 20deg;
 }
 
-.bl-star-icon::before {
+.ol-star-icon::before {
 	content: "";
 	position: absolute;
 	top: 0;
@@ -139,19 +138,19 @@
 	box-sizing: border-box;
 }
 
-.bl-star-checkbox input:checked ~ .bl-star-icon::before {
+.ol-star-checkbox input:checked ~ .ol-star-icon::before {
 	background-color: #0a1a4e;
 	border-color: #0a1a4e;
 }
 
-/* Struktura elementu produktu na liście */
-.bl-delivery-section {
+/* Bieżące produkty */
+.ol-delivery-section {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 }
 
-.bl-product {
+.ol-product {
 	display: flex;
 	gap: 15px;
 	align-items: flex-start;
@@ -160,12 +159,12 @@
 	padding-bottom: 15px;
 }
 
-.bl-product:last-child {
+.ol-product:last-child {
 	border-bottom: none;
 	padding-bottom: 0;
 }
 
-.bl-preview-box {
+.ol-preview-box {
 	width: 100px;
 	height: 100px;
 	background: white;
@@ -175,169 +174,159 @@
 	justify-content: center;
 }
 
-.bl-preview-box img {
+.ol-preview-box img {
 	max-width: 100%;
 	max-height: 100%;
 	object-fit: contain;
 }
 
-.bl-product-info {
+.ol-product-info {
 	flex: 1;
 }
 
-.bl-product-name {
+.ol-product-name {
 	font-size: 14px;
 	text-align: left;
 	margin-bottom: 5px;
 	font-weight: 500;
 }
 
-.bl-seller-tag {
+.ol-seller-tag {
 	font-size: 12px;
 	color: #666;
 }
 
-.bl-product-row {
+.ol-product-row {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.bl-price-big {
+.ol-price-big {
 	font-size: 20px;
 	font-weight: bold;
-	color: #111;
 }
 
-/* Panel podsumowania bocznego */
-.bl-summary-box {
+/* Sekcja Historii Zamówień */
+.ol-history-section {
 	display: flex;
 	flex-direction: column;
 	gap: 15px;
 }
 
-.bl-summary-heading {
-	font-size: 18px;
-	font-weight: bold;
-	color: #0a1a4e;
-	margin-bottom: 5px;
-	border-bottom: 1px solid #eee;
-	padding-bottom: 10px;
-}
-
-.bl-summary-row {
+.ol-history-row {
 	display: flex;
 	justify-content: space-between;
-	font-size: 14px;
-}
-
-.bl-payment-method-section {
-	margin-top: 10px;
-}
-
-.bl-payment-method-section h4 {
-	font-size: 13px;
-	text-transform: uppercase;
-	color: #888;
-	margin-bottom: 8px;
-}
-
-.bl-payment-radio {
-	display: flex;
 	align-items: center;
-	gap: 8px;
+	padding: 15px 0;
+	border-bottom: 1px solid #eee;
+}
+
+.ol-history-row:last-child {
+	border-bottom: none;
+}
+
+.ol-history-info {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	flex: 2;
+}
+
+.ol-history-number {
+	font-weight: bold;
+	font-size: 15px;
+	color: #111;
+}
+
+.ol-history-date {
+	font-size: 12px;
+	color: #888;
+}
+
+.ol-history-summary-text {
 	font-size: 13px;
-	cursor: pointer;
-	background: #fdfdfd;
-	border: 1px solid #ddd;
-	padding: 10px;
-	border-radius: 6px;
+	color: #555;
+	margin-top: 2px;
 }
 
-.bl-summary-divider {
-	border-top: 1px dashed #ddd;
-	margin: 5px 0;
+.ol-history-status-container {
+	display: flex;
+	gap: 10px;
+	flex: 2;
+	justify-content: center;
 }
 
-.bl-summary-row.bl-total {
+.ol-history-price {
 	font-size: 16px;
 	font-weight: bold;
-}
-
-.bl-total-price {
-	font-size: 22px;
 	color: #0a1a4e;
+	flex: 1;
+	text-align: right;
 }
 
-/* Przyciski */
-.bl-btn-etoile {
-	width: 100%;
-	padding: 12px;
-	border: none;
-	border-radius: 4px;
+/* Badges / Statusy */
+.ol-badge {
+	padding: 6px 12px;
+	border-radius: 20px;
+	font-size: 11px;
 	font-weight: bold;
-	cursor: pointer;
-	font-size: 14px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	display: inline-block;
 	text-align: center;
-	transition: background 0.2s;
+	min-width: 100px;
 }
 
-.bl-btn-etoile.bl-gold-btn {
-	background: #a39172;
-	color: white;
+.ol-badge-success {
+	background-color: #e6f4ea;
+	color: #137333;
+}
+.ol-badge-danger {
+	background-color: #fce8e6;
+	color: #c5221f;
+}
+.ol-badge-info {
+	background-color: #e8f0fe;
+	color: #1a73e8;
+}
+.ol-badge-warning {
+	background-color: #fef7e0;
+	color: #b06000;
 }
 
-.bl-btn-etoile.bl-gold-btn:hover:not(:disabled) {
-	background: #c4ae89;
-}
-
-.bl-btn-etoile:disabled {
-	background: #ccc;
-	cursor: not-allowed;
-}
-
-/* Responsywność */
+/* Responsywność mobilna */
 @media (max-width: 768px) {
-	.bl-layout {
-		flex-direction: column;
-		gap: 15px;
-	}
-
-	.bl-main {
-		order: 1;
-	}
-
-	.bl-sidebar {
-		order: 2;
-		position: static;
-		width: 100%;
-	}
-
-	.bl-heading {
+	.ol-heading {
 		font-size: 22px;
-		margin-top: 10px;
-		margin-bottom: 15px;
 	}
-
-	.bl-top-bar {
-		font-size: 14px;
+	.ol-subheading {
+		font-size: 18px;
+		margin-top: 25px;
 	}
-
-	.bl-product-name {
-		font-size: 13px;
-	}
-
-	.bl-price-big {
-		font-size: 17px;
-	}
-
-	.bl-preview-box {
+	.ol-preview-box {
 		width: 70px;
 		height: 70px;
 	}
+	.ol-price-big {
+		font-size: 17px;
+	}
 
-	.bl-white-card {
-		padding: 16px;
-		margin-bottom: 15px;
+	.ol-history-row {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
+	}
+
+	.ol-history-status-container {
+		justify-content: flex-start;
+		width: 100%;
+	}
+
+	.ol-history-price {
+		text-align: left;
+		width: 100%;
+		border-top: 1px dashed #f0f0f0;
+		padding-top: 8px;
 	}
 }
