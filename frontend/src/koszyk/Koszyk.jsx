@@ -247,6 +247,24 @@ function App() {
 		setKosztDostawy(element);
 	};
 
+	const handleAddSelectedToCart = async () => {
+		try {
+			await fetch("http://localhost:8000/orders/", {
+				method: "POST",
+				headers: {
+					Token: localStorage.getItem("token"),
+					"Content-Type": "application/json",
+					"Access-Control-Allow-Origin": "",
+					"Access-Control-Allow-Methods": "",
+					"Access-Control-Allow-Headers": "*",
+				},
+			});
+		} catch (err) {
+			console.error("❌ ERROR:", err);
+			alert("Nie udało się dodać zaznaczonych do koszyka.");
+		}
+	};
+
 	useTitle("Etoile - Koszyk");
 	return (
 		<div className="app-container">
@@ -343,9 +361,12 @@ function App() {
 								</span>
 							</div>
 
-							<button className="btn-etoile blue">ZAPŁAĆ PÓŹNIEJ</button>
-							<button className="btn-etoile green">DOSTAWA I PŁATNOŚĆ</button>
-							<button className="btn-etoile transparent">KONTYNUUJ ZAKUPY</button>
+							<button className="btn-etoile blue" onClick={handleAddSelectedToCart}>
+								ZAPŁAĆ
+							</button>
+							<a className="btn-etoile transparent" href="..">
+								KONTYNUUJ ZAKUPY
+							</a>
 						</div>
 
 						<div className="white-card shadow protection-box">

@@ -8,6 +8,8 @@ from app.models.order import Order
 from app.models.order_item import OrderItem
 from app.schemas.order import OrderUpdate, OrderDelete
 from app.core.security import get_current_user
+from app.models.product import Product
+from app.models.project import CustomProject
 
 # ================ #
 # obsługa zamówień #
@@ -17,7 +19,7 @@ router = APIRouter()
 # ========== dodawanie zamówienia ========== #
 @router.post("/")
 def create_order(
-    token: Annotated[int | None, Header()],
+    token: Annotated[str | None, Header()] = None,
     db: Session = Depends(get_db)
 ):
     # =========================
@@ -40,7 +42,7 @@ def create_order(
         # =========================
         new_order = Order(
             user_id=user_id,
-            status="new",
+            status="Oczekujące",
             created_at=datetime.utcnow()
         )
         db.add(new_order)
@@ -51,14 +53,25 @@ def create_order(
         # cart -> order_items
         # =========================
         for item in cart_items:
-            order_item = OrderItem(
-                order_id=new_order.order_id,
-                product_id=item.product_id,
-                project_id=item.project_id,
-                quantity=item.quantity,
-                price_at_purchase=item.price_at_purchase
-            )
-            db.add(order_item)
+            if item.project_id is not None:
+                order_item = OrderItem(
+                    order_id=new_order.order_id,
+                    product_id=item.product_id,
+                    project_id=item.project_id,
+                    quantity=item.quantity,
+                    price_at_purchase=db.query(CustomProject).filter(CustomProject.project_id == item.project_id).first().total_price
+                )
+                db.add(order_item)
+            else:
+                order_item = OrderItem(
+                    order_id=new_order.order_id,
+                    product_id=item.product_id,
+                    project_id=item.project_id,
+                    quantity=item.quantity,
+                    price_at_purchase=db.query(Product).filter(Product.product_id == item.product_id).first().price
+                )
+                db.add(order_item)
+
         # =========================
         # usuwanie koszyka
         # =========================
@@ -125,9 +138,10 @@ def delete_order(
 # ========== pobranie listy zamówień ========== #
 @router.get("/")
 def get_orders(
-    user_id: Annotated[int | None, Header()] = None,
+    token: Annotated[str | None, Header()] = None,
     db: Session = Depends(get_db)
 ):
+    user_id = get_current_user(token, db)
     return (
         db.query(Order)
         .filter(Order.user_id == user_id)

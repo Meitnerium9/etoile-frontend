@@ -11,7 +11,6 @@ import Blog from "./blog/Blog.jsx";
 import { useEffect } from "react";
 import Konto from "./konto/Konto.jsx";
 import Favorites from "./favorites/Favorites.jsx";
-import OrderList from "./orderList/OrderList.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
@@ -25,7 +24,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 				<Route path="/blog/*" element={<Blog />} />
 				<Route path="/konto/*" element={<Konto />} />
 				<Route path="/ulubione" element={<Favorites />} />
-				<Route path="/listaZamowien" element={<OrderList />} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>
