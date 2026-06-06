@@ -13,8 +13,10 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import { useTitle } from "../main.jsx";
 import { materials } from "./materialsData.js";
+import { Navigate } from "react-router-dom";
 
 function Creator() {
+	if (localStorage.getItem("token") == null) return <Navigate to="/" replace />;
 	// Istniejące stany konfiguracji
 	const [selectedMaterial, setSelectedMaterial] = useState(1);
 	const [isOpen, setIsOpen] = useState(true);

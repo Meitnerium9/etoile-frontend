@@ -9,8 +9,10 @@ import FavoritesSuggestions from "./components/FavoritesSuggestions.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import { useTitle } from "../main.jsx";
+import { Navigate } from "react-router-dom";
 
 function Favorites() {
+	if (localStorage.getItem("token") == null) return <Navigate to="/" replace />;
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState("");
