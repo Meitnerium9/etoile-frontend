@@ -11,8 +11,10 @@ import PostCreatorActions from "./components/PostCreatorActions.jsx";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import { useTitle } from "../main.jsx";
+import { Navigate } from "react-router-dom";
 
 function PostCreator() {
+	if (localStorage.getItem("token") == null) return <Navigate to="/" replace />;
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [image, setImage] = useState(null);

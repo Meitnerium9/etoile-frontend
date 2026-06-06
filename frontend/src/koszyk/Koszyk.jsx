@@ -1,6 +1,5 @@
 import { useRef, useState, useEffect } from "react";
 import "./Koszyk.css";
-
 import iconSample from "../assets/Sample.png";
 import iconProt from "../assets/Elogo.png";
 import Navbar from "../components/Navbar";
@@ -8,6 +7,7 @@ import Footer from "../components/Footer";
 import { useTitle } from "../main.jsx";
 import Platnosc from "./placeholders/Platnosc.jsx";
 import Dostawa from "./placeholders/Dostawa.jsx";
+import { Navigate } from "react-router-dom";
 
 const CartItem = ({ title, price }) => (
 	<div className="item">
@@ -70,6 +70,7 @@ const ElementListy = ({ product, onAdd }) => (
 );
 
 function App() {
+	if (localStorage.getItem("token") == null) return <Navigate to="/" replace />;
 	// Stan dla licznika sztuk
 	const [produktyWKoszyku, setProduktyWKoszyku] = useState([]);
 	const [loading, setLoading] = useState(true);
