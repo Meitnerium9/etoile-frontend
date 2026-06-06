@@ -16,6 +16,7 @@ export default function Navbar() {
 				<img src={iconLogo} alt="Logo" />
 			</a>
 			<div>
+				<a href="/produkty">Sklep</a>
 				<a href="/blog">Blog</a>
 				{localStorage.getItem("token") != null && (
 					<>
