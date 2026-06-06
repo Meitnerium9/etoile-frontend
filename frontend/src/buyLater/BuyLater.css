@@ -1,0 +1,343 @@
+/* Główne style kontenerów strony BuyLater */
+.bl-page-container {
+	background-color: #f9faf5;
+	width: 100%;
+	min-height: 100vh;
+	padding: 30px 0;
+}
+
+.bl-layout {
+	display: flex;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+	gap: 30px; /* Przestrzeń między listą a podsumowaniem */
+	text-align: left;
+}
+
+.bl-main {
+	flex: 3; /* Większa część na produkty */
+}
+
+.bl-sidebar {
+	flex: 1; /* Mniejsza boczna kolumna na podsumowanie */
+	position: sticky;
+	top: 20px; /* Przyklejanie panelu bocznego podczas przewijania */
+	height: fit-content;
+}
+
+.bl-heading {
+	font-size: 2rem;
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	color: #111;
+}
+
+.bl-white-card {
+	background: #fff;
+	border-radius: 16px;
+	padding: 24px;
+	margin-bottom: 30px;
+}
+
+.bl-shadow {
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Górny pasek z usuwaniem zaznaczonych */
+.bl-top-bar {
+	font-size: 20px;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+}
+
+.bl-text-btn {
+	background: none;
+	border: none;
+	color: #00a5a5;
+	font-size: 13px;
+	font-weight: 600;
+	cursor: pointer;
+	text-transform: uppercase;
+	padding: 0;
+	transition: 0.2s;
+}
+
+.bl-text-btn:hover {
+	color: #007a7a;
+	text-decoration: underline;
+}
+
+/* Checkbox w stylu gwiazdki z Twojego projektu */
+.bl-star-checkbox {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+}
+
+.bl-star-checkbox input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.bl-star-icon {
+	display: inline-block;
+	position: relative;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	vertical-align: middle;
+	transition:
+		transform 0.2s,
+		rotate 0.3s ease;
+	margin-right: 8px;
+}
+
+.bl-star-napis {
+	top: 5px;
+	text-transform: uppercase;
+	font-size: 13px;
+	color: #666;
+}
+
+.bl-star-checkbox:hover .bl-star-icon {
+	transform: scale(1.2);
+	rotate: 20deg;
+}
+
+.bl-star-icon::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	border: 15px solid #ccc;
+	clip-path: polygon(
+		50% 0%,
+		61% 35%,
+		98% 35%,
+		68% 57%,
+		79% 91%,
+		50% 70%,
+		21% 91%,
+		32% 57%,
+		2% 35%,
+		39% 35%
+	);
+	transition:
+		background-color 0.2s,
+		border-color 0.2s;
+	box-sizing: border-box;
+}
+
+.bl-star-checkbox input:checked ~ .bl-star-icon::before {
+	background-color: #0a1a4e;
+	border-color: #0a1a4e;
+}
+
+/* Struktura elementu produktu na liście */
+.bl-delivery-section {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.bl-product {
+	display: flex;
+	gap: 15px;
+	align-items: flex-start;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #f5f5f5;
+	padding-bottom: 15px;
+}
+
+.bl-product:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.bl-preview-box {
+	width: 100px;
+	height: 100px;
+	background: white;
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.bl-preview-box img {
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: contain;
+}
+
+.bl-product-info {
+	flex: 1;
+}
+
+.bl-product-name {
+	font-size: 14px;
+	text-align: left;
+	margin-bottom: 5px;
+	font-weight: 500;
+}
+
+.bl-seller-tag {
+	font-size: 12px;
+	color: #666;
+}
+
+.bl-product-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.bl-price-big {
+	font-size: 20px;
+	font-weight: bold;
+	color: #111;
+}
+
+/* Panel podsumowania bocznego */
+.bl-summary-box {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.bl-summary-heading {
+	font-size: 18px;
+	font-weight: bold;
+	color: #0a1a4e;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #eee;
+	padding-bottom: 10px;
+}
+
+.bl-summary-row {
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+}
+
+.bl-payment-method-section {
+	margin-top: 10px;
+}
+
+.bl-payment-method-section h4 {
+	font-size: 13px;
+	text-transform: uppercase;
+	color: #888;
+	margin-bottom: 8px;
+}
+
+.bl-payment-radio {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 13px;
+	cursor: pointer;
+	background: #fdfdfd;
+	border: 1px solid #ddd;
+	padding: 10px;
+	border-radius: 6px;
+}
+
+.bl-summary-divider {
+	border-top: 1px dashed #ddd;
+	margin: 5px 0;
+}
+
+.bl-summary-row.bl-total {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.bl-total-price {
+	font-size: 22px;
+	color: #0a1a4e;
+}
+
+/* Przyciski */
+.bl-btn-etoile {
+	width: 100%;
+	padding: 12px;
+	border: none;
+	border-radius: 4px;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 14px;
+	text-align: center;
+	transition: background 0.2s;
+}
+
+.bl-btn-etoile.bl-gold-btn {
+	background: #a39172;
+	color: white;
+}
+
+.bl-btn-etoile.bl-gold-btn:hover:not(:disabled) {
+	background: #c4ae89;
+}
+
+.bl-btn-etoile:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+	.bl-layout {
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.bl-main {
+		order: 1;
+	}
+
+	.bl-sidebar {
+		order: 2;
+		position: static;
+		width: 100%;
+	}
+
+	.bl-heading {
+		font-size: 22px;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+
+	.bl-top-bar {
+		font-size: 14px;
+	}
+
+	.bl-product-name {
+		font-size: 13px;
+	}
+
+	.bl-price-big {
+		font-size: 17px;
+	}
+
+	.bl-preview-box {
+		width: 70px;
+		height: 70px;
+	}
+
+	.bl-white-card {
+		padding: 16px;
+		margin-bottom: 15px;
+	}
+}
