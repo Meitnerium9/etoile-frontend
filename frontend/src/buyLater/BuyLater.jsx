@@ -16,7 +16,7 @@ function BuyLater() {
 	const [error, setError] = useState("");
 	const [paymentMethod, setPaymentMethod] = useState("electronic");
 
-	useTitle("Etoile - Kup później");
+	useTitle("Etoile - Zapłać później");
 
 	useEffect(() => {
 		fetchBuyLater();
@@ -116,7 +116,7 @@ function BuyLater() {
 			payment_method: paymentMethod,
 		};
 
-		console.log("➡️ PROCESOWANIE PŁATNOŚCI:", payload);
+		console.log("PROCESOWANIE PŁATNOŚCI:", payload);
 		alert(`Przekierowywanie do płatności elektronicznej. Suma: ${totalPrice} zł`);
 	};
 
@@ -130,7 +130,7 @@ function BuyLater() {
 			<div className="bl-page-container">
 				<div className="bl-layout">
 					<div className="bl-main">
-						<h1 className="bl-heading">Kup później</h1>
+						<h1 className="bl-heading">Zapłać później</h1>
 
 						<div className="bl-white-card bl-shadow">
 							{products.length > 0 && (
