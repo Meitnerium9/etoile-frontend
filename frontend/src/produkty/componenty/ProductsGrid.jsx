@@ -1,8 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard.jsx";
-import { products } from "../productsData.js";
 
 function ProductsGrid() {
+	const [products, setProducts] = useState([]);
+
+	useEffect(() => {
+		async function fetchData() {
+			const response = await fetch("http://127.0.0.1:8000/products/", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+				},
+			});
+			setProducts(await response.json());
+		}
+		fetchData();
+	}, []);
+
 	const [openProductId, setOpenProductId] = useState(null);
 
 	function handleProductClick(productId) {
@@ -13,10 +27,10 @@ function ProductsGrid() {
 		<div className="products-grid">
 			{products.map((product) => (
 				<ProductCard
-					key={product.id}
+					key={product.product_id}
 					product={product}
-					isOpen={openProductId === product.id}
-					onToggle={() => handleProductClick(product.id)}
+					isOpen={openProductId === product.product_id}
+					onToggle={() => handleProductClick(product.product_id)}
 				/>
 			))}
 		</div>

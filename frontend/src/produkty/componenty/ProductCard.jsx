@@ -42,7 +42,11 @@ function ProductCard({ product, isOpen, onToggle }) {
 
 	return (
 		<article className={`product-card ${isOpen ? "product-card-open" : ""}`} onClick={onToggle}>
-			<img src={product.image} alt={product.name} className="product-image" />
+			<img
+				src={"src/assets/" + product.image_path}
+				alt={product.name}
+				className="product-image"
+			/>
 
 			<div className="product-info">
 				<h2 className="product-name">{product.name}</h2>

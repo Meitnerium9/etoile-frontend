@@ -19,12 +19,7 @@ CREATE TABLE Products (
     category_id INT REFERENCES Categories(category_id),
     name VARCHAR(255) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
-    image_path VARCHAR(500),
-    stock INT DEFAULT 0,
-    metal VARCHAR(50) not null,
-    project_size int not null,
-    trinket1 VARCHAR(50) not null,
-    trinket2 VARCHAR(50)
+    image_path VARCHAR(500)
 );
 
 CREATE TABLE Custom_Projects (

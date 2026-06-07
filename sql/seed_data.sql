@@ -13,14 +13,12 @@ INSERT INTO Categories (name) VALUES
 ('Kolczyki');
 
 -- Products
-INSERT INTO Products
-(category_id, name, price, image_path, stock, metal, project_size, trinket1, trinket2)
-VALUES
-(1, 'Bransoletka Srebrna Classic', 149.99, 'images/bransoletka1.jpg', 15, 'Srebro', 18, 'Serce', NULL),
-(1, 'Bransoletka Gold Luxury', 299.99, 'images/bransoletka2.jpg', 8, 'Złoto', 20, 'Gwiazda', 'Księżyc'),
-(2, 'Naszyjnik Elegance', 199.99, 'images/naszyjnik1.jpg', 10, 'Srebro', 45, 'Motyl', NULL),
-(3, 'Pierścionek Diamond', 499.99, 'images/pierscionek1.jpg', 5, 'Złoto', 14, 'Diament', NULL),
-(4, 'Kolczyki Pearl', 129.99, 'images/kolczyki1.jpg', 20, 'Srebro', 5, 'Perła', NULL);
+INSERT INTO Products (category_id, name, price, image_path) VALUES
+(1, 'Bransoletka Srebrna Classic', 149.99, 'produkty/Bransoletka1.png'),
+(1, 'Bransoletka Gold Luxury', 299.99, 'produkty/Bransoletka2.png'),
+(2, 'Naszyjnik Elegance', 199.99, 'produkty/Naszyjnik1.png'),
+(3, 'Pierścionek Diamond', 499.99, 'produkty/Pierscionek2.png'),
+(4, 'Kolczyki Pearl', 129.99, 'produkty/ZloteKolczyki3.png');
 
 -- Custom_Projects
 INSERT INTO Custom_Projects

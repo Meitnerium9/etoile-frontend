@@ -9,8 +9,3 @@ class Product(Base):
     name = Column(String)
     price = Column(Float)
     image_path = Column(String)
-    stock = Column(Integer)
-    metal = Column(String)
-    project_size = Column(Integer)
-    trinket1 = Column(String)
-    trinket2 = Column(String)
