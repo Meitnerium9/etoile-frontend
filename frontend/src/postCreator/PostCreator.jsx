@@ -1,26 +1,31 @@
 import "../App.css";
 import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import "./PostCreator.css";
 
 import PostCreatorTitle from "./components/PostCreatorTitle.jsx";
 import PostCreatorImageUpload from "./components/PostCreatorImageUpload.jsx";
 import PostCreatorDescription from "./components/PostCreatorDescription.jsx";
 import PostCreatorActions from "./components/PostCreatorActions.jsx";
+import ProjectList from "./components/ProjectList.jsx";
 
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer";
 import { useTitle } from "../main.jsx";
-import { Navigate } from "react-router-dom";
 
 function PostCreator() {
-	if (localStorage.getItem("token") == null) return <Navigate to="/" replace />;
+	if (localStorage.getItem("token") == null) {
+		return <Navigate to="/" replace />;
+	}
+
 	const [title, setTitle] = useState("");
 	const [description, setDescription] = useState("");
 	const [image, setImage] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
 	const [success, setSuccess] = useState("");
+
+	const [selectedProjectId, setSelectedProjectId] = useState(null);
 
 	const fileInputRef = useRef(null);
 	const navigate = useNavigate();
@@ -41,9 +46,14 @@ function PostCreator() {
 			return;
 		}
 
+		if (selectedProjectId == null) {
+			setError("Musisz wybrać projekt przed utworzeniem posta.");
+			return;
+		}
+
 		const newPost = {
 			user_id: 1,
-			project_id: null,
+			project_id: selectedProjectId,
 			title: title,
 			description: description,
 			image_path: image ? image.name : null,
@@ -56,9 +66,6 @@ function PostCreator() {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
-					"Access-Control-Allow-Origin": "",
-					"Access-Control-Allow-Methods": "",
-					"Access-Control-Allow-Headers": "*",
 				},
 				body: JSON.stringify(newPost),
 			});
@@ -77,6 +84,7 @@ function PostCreator() {
 			setTitle("");
 			setDescription("");
 			setImage(null);
+			setSelectedProjectId(null);
 
 			if (fileInputRef.current) {
 				fileInputRef.current.value = "";
@@ -99,17 +107,18 @@ function PostCreator() {
 					<PostCreatorTitle title={title} setTitle={setTitle} />
 
 					<div className="post-creator-row">
-						<PostCreatorImageUpload
-							image={image}
-							setImage={setImage}
-							fileInputRef={fileInputRef}
-						/>
-
 						<PostCreatorDescription
 							description={description}
 							setDescription={setDescription}
 						/>
 					</div>
+
+					<h2>Wybierz projekt do posta</h2>
+
+					<ProjectList
+						selectedProjectId={selectedProjectId}
+						onSelectProject={(project) => setSelectedProjectId(project.project_id)}
+					/>
 
 					{error && <p className="post-creator-error">{error}</p>}
 					{success && <p className="post-creator-success">{success}</p>}

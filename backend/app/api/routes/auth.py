@@ -36,7 +36,19 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
         db.add(new_user)
         db.commit()
         db.refresh(new_user)
-        send_mail(new_user.email, "Witaj w Etoile!", "Dziękujemy za rejestrację")
+        try:
+            print("Próba wysłania maila do:", new_user.email)
+
+            send_mail(
+                new_user.email,
+                "Witaj w Etoile!",
+                "Dziękujemy za rejestrację"
+            )
+
+            print("Mail został wysłany poprawnie.")
+
+        except Exception as e:
+            print("BŁĄD WYSYŁANIA MAILA:", e)
 
 
         return {"msg": "Konto zostało utworzone."}

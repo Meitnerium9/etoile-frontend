@@ -1,0 +1,9 @@
+div.container {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+div.container > *:not(:first-child) {
+	border-top: 2px solid #acacac;
+}
