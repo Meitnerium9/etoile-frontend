@@ -135,84 +135,79 @@ export default function UserPosts() {
 		}
 	};
 
-	if (loading) {
-		return <p className="user-posts-message">Ładowanie postów...</p>;
-	}
-
-	if (error) {
-		return <p className="user-posts-error">{error}</p>;
-	}
-
-	if (posts.length === 0) {
-		return (
-			<div className="user-posts-empty-box">
-				<h2>Brak postów</h2>
-				<p>Nie napisałeś jeszcze żadnych postów.</p>
-			</div>
-		);
-	}
-
 	return (
-		<div className="user-posts-container">
-			{deleteSuccess && <div className="user-posts-success">{deleteSuccess}</div>}
-			{deleteError && <div className="user-posts-error">{deleteError}</div>}
+		<div className="user-posts-page">
+			<div className="user-posts-container">
+				<h1 className="ol-heading">Lista postów</h1>
+				{loading && <p>Ładowanie listy...</p>}
+				{error && <p>{error}</p>}
+				{!loading && !error && posts.length === 0 && (
+					<p>Nie masz obecnie żadnych otwartych pozycji na liście.</p>
+				)}
 
-			<div className="user-posts-list">
-				{posts.map((post) => (
-					<div key={post.post_id} className="user-post-item">
-						<div className="user-post-content">
-							<img
-								src={post.image_path || "/src/blog/images/post1.jpg"}
-								alt={post.title}
-								className="user-post-image"
-							/>
+				{deleteSuccess && <div className="user-posts-success">{deleteSuccess}</div>}
+				{deleteError && <div className="user-posts-error">{deleteError}</div>}
+				<div className="user-posts-list">
+					{!loading &&
+						!error &&
+						posts.map((post) => (
+							<div key={post.post_id} className="user-post-item">
+								<div className="user-post-content">
+									<img
+										src={post.image_path || "/src/blog/images/post1.jpg"}
+										alt={post.title}
+										className="user-post-image"
+									/>
 
-							<div className="user-post-info">
-								<h3 className="user-post-title">{post.title}</h3>
-								<p className="user-post-description">
-									{post.description?.length > 150
-										? post.description.slice(0, 150) + "..."
-										: post.description}
-								</p>
-								<Link to={`/blog/${post.post_id}`} className="blog-post-read-more">
-									Czytaj dalej...
-								</Link>
-								<p className="user-post-date">
-									{new Date(post.created_at).toLocaleDateString("pl-PL")}
-								</p>
+									<div className="user-post-info">
+										<h3 className="user-post-title">{post.title}</h3>
+										<p className="user-post-description">
+											{post.description?.length > 150
+												? post.description.slice(0, 150) + "..."
+												: post.description}
+										</p>
+										<Link
+											to={`/blog/${post.post_id}`}
+											className="blog-post-read-more">
+											Czytaj dalej...
+										</Link>
+										<p className="user-post-date">
+											{new Date(post.created_at).toLocaleDateString("pl-PL")}
+										</p>
+									</div>
+								</div>
+
+								<button
+									onClick={() => handleDeletePost(post.post_id)}
+									className="user-post-delete-btn">
+									Usuń
+								</button>
 							</div>
-						</div>
+						))}
+				</div>
+
+				{totalPages > 1 && (
+					<div className="user-posts-pagination">
+						<button
+							onClick={() => setCurrentPage((prev) => prev - 1)}
+							disabled={currentPage === 1}
+							className="user-posts-pagination-button">
+							← Poprzednia
+						</button>
+
+						<span className="user-posts-pagination-info">
+							Strona {currentPage} z {totalPages}
+						</span>
 
 						<button
-							onClick={() => handleDeletePost(post.post_id)}
-							className="user-post-delete-btn">
-							Usuń
+							onClick={() => setCurrentPage((prev) => prev + 1)}
+							disabled={currentPage === totalPages}
+							className="user-posts-pagination-button">
+							Następna →
 						</button>
 					</div>
-				))}
+				)}
 			</div>
-
-			{totalPages > 1 && (
-				<div className="user-posts-pagination">
-					<button
-						onClick={() => setCurrentPage((prev) => prev - 1)}
-						disabled={currentPage === 1}
-						className="user-posts-pagination-button">
-						← Poprzednia
-					</button>
-
-					<span className="user-posts-pagination-info">
-						Strona {currentPage} z {totalPages}
-					</span>
-
-					<button
-						onClick={() => setCurrentPage((prev) => prev + 1)}
-						disabled={currentPage === totalPages}
-						className="user-posts-pagination-button">
-						Następna →
-					</button>
-				</div>
-			)}
 		</div>
 	);
 }

@@ -112,37 +112,34 @@ VALUES
 INSERT INTO Blog_Posts
 (user_id, project_id, title, description, image_path, created_at)
 VALUES
-(5, 1, 'Bransoletka Złote Serce', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto żółte. Projekt ma rozmiar 18 cm i wykorzystuje zawieszkę „serce”. Całość została wyceniona na 5600.00 zł.', '/src/assets/creator/Bransoletka/Złoto żółte/1z/serce.webp', '2026-06-07 20:00:00.000000'),
-(5, 2, 'Bransoletka Biała Gwiazda', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 16 cm i wykorzystuje zawieszkę „gwiazda”. Całość została wyceniona na 5800.00 zł.', '/src/assets/creator/Bransoletka/Srebro/1z/gwiazda.webp', '2026-06-07 20:02:05.000000'),
-(5, 3, 'Bransoletka Różowy Księżyc', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto różowe. Projekt ma rozmiar 20 cm i wykorzystuje zawieszkę „księżyc”. Całość została wyceniona na 6000.00 zł.', '/src/assets/creator/Bransoletka/Złoto różowe/1z/księżyc.webp', '2026-06-07 20:04:10.000000'),
-(5, 4, 'Bransoletka Platynowa Koniczyna', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 18 cm i wykorzystuje zawieszkę „koniczyna”. Całość została wyceniona na 7000.00 zł.', '/src/assets/creator/Bransoletka/Srebro/1z/koniczyna.webp', '2026-06-07 20:06:15.000000'),
-(5, 5, 'Bransoletka Srebrne Słońce', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 16 cm i wykorzystuje zawieszkę „słońce”. Całość została wyceniona na 3400.00 zł.', '/src/assets/creator/Bransoletka/Srebro/1z/słońce.webp', '2026-06-07 20:08:20.000000'),
-(6, 6, 'Bransoletka Krzyż i Serce', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto żółte. Projekt ma rozmiar 20 cm i wykorzystuje dwie zawieszki: „krzyż” oraz „serce”. Całość została wyceniona na 6600.00 zł.', '/src/assets/creator/Bransoletka/Złoto żółte/2z/krzyż-serce.webp', '2026-06-07 20:10:25.000000'),
-(6, 7, 'Bransoletka Gwiazda i Księżyc', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 18 cm i wykorzystuje dwie zawieszki: „gwiazda” oraz „księżyc”. Całość została wyceniona na 6800.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/gwiazda-księżyc.webp', '2026-06-07 20:12:30.000000'),
-(6, 8, 'Bransoletka Słońce i Koniczyna', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto różowe. Projekt ma rozmiar 16 cm i wykorzystuje dwie zawieszki: „słońce” oraz „koniczyna”. Całość została wyceniona na 6400.00 zł.', '/src/assets/creator/Bransoletka/Złoto różowe/2z/słońce-koniczyna.webp', '2026-06-07 20:14:35.000000'),
-(6, 9, 'Bransoletka Nieskończoność i Serce', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 20 cm i wykorzystuje dwie zawieszki: „nieskończoność” oraz „serce”. Całość została wyceniona na 8000.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/nieskończoność-serce.webp', '2026-06-07 20:16:40.000000'),
-(6, 10, 'Bransoletka Krzyż i Gwiazda', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 18 cm i wykorzystuje dwie zawieszki: „krzyż” oraz „gwiazda”. Całość została wyceniona na 4400.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/krzyż-gwiazda.webp', '2026-06-07 20:18:45.000000'),
-(7, 11, 'Bransoletka Dwa Serca', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto żółte. Projekt ma rozmiar 16 cm i wykorzystuje dwie zawieszki: „serce” oraz „serce”. Całość została wyceniona na 6200.00 zł.', '/src/assets/creator/Bransoletka/Złoto żółte/2z/serce-serce.webp', '2026-06-07 20:20:50.000000'),
-(7, 12, 'Bransoletka Dwie Koniczyny', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 20 cm i wykorzystuje dwie zawieszki: „koniczyna” oraz „koniczyna”. Całość została wyceniona na 7000.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/koniczyna-koniczyna.webp', '2026-06-07 20:22:55.000000'),
-(7, 13, 'Bransoletka Dwa Księżyce', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto różowe. Projekt ma rozmiar 18 cm i wykorzystuje dwie zawieszki: „księżyc” oraz „księżyc”. Całość została wyceniona na 6600.00 zł.', '/src/assets/creator/Bransoletka/Złoto różowe/2z/księżyc-księżyc.webp', '2026-06-07 20:25:00.000000'),
-(7, 14, 'Bransoletka Dwa Słońca', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 16 cm i wykorzystuje dwie zawieszki: „słońce” oraz „słońce”. Całość została wyceniona na 7600.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/słońce-słońce.webp', '2026-06-07 20:27:05.000000'),
-(7, 15, 'Bransoletka Dwie Gwiazdy', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 20 cm i wykorzystuje dwie zawieszki: „gwiazda” oraz „gwiazda”. Całość została wyceniona na 4600.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/gwiazda-gwiazda.webp', '2026-06-07 20:29:10.000000'),
-(8, 16, 'Naszyjnik Złote Serce', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto żółte. Projekt ma rozmiar 40 cm i wykorzystuje zawieszkę „serce”. Całość została wyceniona na 5600.00 zł.', '/src/assets/creator/Naszyjnik/Złoto żółte/1z/serce.webp', '2026-06-07 20:31:15.000000'),
-(8, 17, 'Naszyjnik Biała Koniczyna', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 45 cm i wykorzystuje zawieszkę „koniczyna”. Całość została wyceniona na 6300.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/koniczyna.webp', '2026-06-07 20:33:20.000000'),
-(8, 18, 'Naszyjnik Różowy Księżyc', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto różowe. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „księżyc”. Całość została wyceniona na 6400.00 zł.', '/src/assets/creator/Naszyjnik/Złoto różowe/1z/księżyc.webp', '2026-06-07 20:35:25.000000'),
 (8, 19, 'Naszyjnik Platynowe Słońce', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 40 cm i wykorzystuje zawieszkę „słońce”. Całość została wyceniona na 7000.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/słońce.webp', '2026-06-07 20:37:30.000000'),
-(8, 20, 'Naszyjnik Srebrny Krzyż', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 45 cm i wykorzystuje zawieszkę „krzyż”. Całość została wyceniona na 3900.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/krzyż.webp', '2026-06-07 20:39:35.000000'),
-(9, 21, 'Naszyjnik Złota Nieskończoność', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto żółte. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „nieskończoność”. Całość została wyceniona na 6200.00 zł.', '/src/assets/creator/Naszyjnik/Złoto żółte/1z/nieskończoność.webp', '2026-06-07 20:41:40.000000'),
-(9, 22, 'Naszyjnik Biała Gwiazda', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 40 cm i wykorzystuje zawieszkę „gwiazda”. Całość została wyceniona na 6000.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/gwiazda.webp', '2026-06-07 20:43:45.000000'),
-(9, 23, 'Naszyjnik Różowe Serce', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto różowe. Projekt ma rozmiar 45 cm i wykorzystuje zawieszkę „serce”. Całość została wyceniona na 6100.00 zł.', '/src/assets/creator/Naszyjnik/Złoto różowe/1z/serce.webp', '2026-06-07 20:45:50.000000'),
-(9, 24, 'Naszyjnik Platynowa Koniczyna', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „koniczyna”. Całość została wyceniona na 7600.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/koniczyna.webp', '2026-06-07 20:47:55.000000'),
-(9, 25, 'Naszyjnik Srebrny Księżyc', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 40 cm i wykorzystuje zawieszkę „księżyc”. Całość została wyceniona na 3600.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/księżyc.webp', '2026-06-07 20:50:00.000000'),
-(10, 26, 'Naszyjnik Złote Słońce', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto żółte. Projekt ma rozmiar 45 cm i wykorzystuje zawieszkę „słońce”. Całość została wyceniona na 5900.00 zł.', '/src/assets/creator/Naszyjnik/Złoto żółte/1z/słońce.webp', '2026-06-07 20:52:05.000000'),
-(10, 27, 'Naszyjnik Biały Krzyż', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „krzyż”. Całość została wyceniona na 6600.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/krzyż.webp', '2026-06-07 20:54:10.000000'),
-(10, 28, 'Naszyjnik Różowa Nieskończoność', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto różowe. Projekt ma rozmiar 40 cm i wykorzystuje zawieszkę „nieskończoność”. Całość została wyceniona na 5800.00 zł.', '/src/assets/creator/Naszyjnik/Złoto różowe/1z/nieskończoność.webp', '2026-06-07 20:56:15.000000'),
+(5, 2, 'Bransoletka Biała Gwiazda', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 16 cm i wykorzystuje zawieszkę „gwiazda”. Całość została wyceniona na 5800.00 zł.', '/src/assets/creator/Bransoletka/Srebro/1z/gwiazda.webp', '2026-06-07 20:02:05.000000'),
 (10, 29, 'Naszyjnik Platynowa Gwiazda', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 45 cm i wykorzystuje zawieszkę „gwiazda”. Całość została wyceniona na 7300.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/gwiazda.webp', '2026-06-07 20:58:20.000000'),
-(10, 30, 'Naszyjnik Srebrna Koniczyna', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „koniczyna”. Całość została wyceniona na 4200.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/koniczyna.webp', '2026-06-07 21:00:25.000000');
-
+(7, 14, 'Bransoletka Dwa Słońca', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 16 cm i wykorzystuje dwie zawieszki: „słońce” oraz „słońce”. Całość została wyceniona na 7600.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/słońce-słońce.webp', '2026-06-07 20:27:05.000000'),
+(9, 23, 'Naszyjnik Różowe Serce', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto różowe. Projekt ma rozmiar 45 cm i wykorzystuje zawieszkę „serce”. Całość została wyceniona na 6100.00 zł.', '/src/assets/creator/Naszyjnik/Złoto różowe/1z/serce.webp', '2026-06-07 20:45:50.000000'),
+(6, 7, 'Bransoletka Gwiazda i Księżyc', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 18 cm i wykorzystuje dwie zawieszki: „gwiazda” oraz „księżyc”. Całość została wyceniona na 6800.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/gwiazda-księżyc.webp', '2026-06-07 20:12:30.000000'),
+(8, 17, 'Naszyjnik Biała Koniczyna', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 45 cm i wykorzystuje zawieszkę „koniczyna”. Całość została wyceniona na 6300.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/koniczyna.webp', '2026-06-07 20:33:20.000000'),
+(5, 1, 'Bransoletka Złote Serce', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto żółte. Projekt ma rozmiar 18 cm i wykorzystuje zawieszkę „serce”. Całość została wyceniona na 5600.00 zł.', '/src/assets/creator/Bransoletka/Złoto żółte/1z/serce.webp', '2026-06-07 20:00:00.000000'),
+(10, 26, 'Naszyjnik Złote Słońce', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto żółte. Projekt ma rozmiar 45 cm i wykorzystuje zawieszkę „słońce”. Całość została wyceniona na 5900.00 zł.', '/src/assets/creator/Naszyjnik/Złoto żółte/1z/słońce.webp', '2026-06-07 20:52:05.000000'),
+(7, 11, 'Bransoletka Dwa Serca', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto żółte. Projekt ma rozmiar 16 cm i wykorzystuje dwie zawieszki: „serce” oraz „serce”. Całość została wyceniona na 6200.00 zł.', '/src/assets/creator/Bransoletka/Złoto żółte/2z/serce-serce.webp', '2026-06-07 20:20:50.000000'),
+(9, 24, 'Naszyjnik Platynowa Koniczyna', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „koniczyna”. Całość została wyceniona na 7600.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/koniczyna.webp', '2026-06-07 20:47:55.000000'),
+(6, 10, 'Bransoletka Krzyż i Gwiazda', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 18 cm i wykorzystuje dwie zawieszki: „krzyż” oraz „gwiazda”. Całość została wyceniona na 4400.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/krzyż-gwiazda.webp', '2026-06-07 20:18:45.000000'),
+(8, 16, 'Naszyjnik Złote Serce', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto żółte. Projekt ma rozmiar 40 cm i wykorzystuje zawieszkę „serce”. Całość została wyceniona na 5600.00 zł.', '/src/assets/creator/Naszyjnik/Złoto żółte/1z/serce.webp', '2026-06-07 20:31:15.000000'),
+(5, 3, 'Bransoletka Różowy Księżyc', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto różowe. Projekt ma rozmiar 20 cm i wykorzystuje zawieszkę „księżyc”. Całość została wyceniona na 6000.00 zł.', '/src/assets/creator/Bransoletka/Złoto różowe/1z/księżyc.webp', '2026-06-07 20:04:10.000000'),
+(10, 30, 'Naszyjnik Srebrna Koniczyna', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „koniczyna”. Całość została wyceniona na 4200.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/koniczyna.webp', '2026-06-07 21:00:25.000000'),
+(7, 12, 'Bransoletka Dwie Koniczyny', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 20 cm i wykorzystuje dwie zawieszki: „koniczyna” oraz „koniczyna”. Całość została wyceniona na 7000.00 zł.', '/src/assets/creator/Bransoletka/Srebro/2z/koniczyna-koniczyna.webp', '2026-06-07 20:22:55.000000'),
+(9, 21, 'Naszyjnik Złota Nieskończoność', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto żółte. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „nieskończoność”. Całość została wyceniona na 6200.00 zł.', '/src/assets/creator/Naszyjnik/Złoto żółte/1z/nieskończoność.webp', '2026-06-07 20:41:40.000000'),
+(6, 8, 'Bransoletka Słońce i Koniczyna', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto różowe. Projekt ma rozmiar 16 cm i wykorzystuje dwie zawieszki: „słońce” oraz „koniczyna”. Całość została wyceniona na 6400.00 zł.', '/src/assets/creator/Bransoletka/Złoto różowe/2z/słońce-koniczyna.webp', '2026-06-07 20:14:35.000000'),
+(8, 18, 'Naszyjnik Różowy Księżyc', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto różowe. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „księżyc”. Całość została wyceniona na 6400.00 zł.', '/src/assets/creator/Naszyjnik/Złoto różowe/1z/księżyc.webp', '2026-06-07 20:35:25.000000'),
+(5, 4, 'Bransoletka Platynowa Koniczyna', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 18 cm i wykorzystuje zawieszkę „koniczyna”. Całość została wyceniona na 7000.00 zł.', '/src/assets/creator/Bransoletka/Srebro/1z/koniczyna.webp', '2026-06-07 20:06:15.000000'),
+(10, 27, 'Naszyjnik Biały Krzyż', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 50 cm i wykorzystuje zawieszkę „krzyż”. Całość została wyceniona na 6600.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/krzyż.webp', '2026-06-07 20:54:10.000000'),
+(7, 13, 'Bransoletka Dwa Księżyce', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto różowe. Projekt ma rozmiar 18 cm i wykorzystuje dwie zawieszki: „księżyc” oraz „księżyc”. Całość została wyceniona na 6600.00 zł.', '/src/assets/creator/Bransoletka/Złoto różowe/2z/księżyc-księżyc.webp', '2026-06-07 20:25:00.000000'),
+(9, 25, 'Naszyjnik Srebrny Księżyc', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 40 cm i wykorzystuje zawieszkę „księżyc”. Całość została wyceniona na 3600.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/księżyc.webp', '2026-06-07 20:50:00.000000'),
+(6, 6, 'Bransoletka Krzyż i Serce', 'Autorski projekt typu bransoletka, wykonany w materiale Złoto żółte. Projekt ma rozmiar 20 cm i wykorzystuje dwie zawieszki: „krzyż” oraz „serce”. Całość została wyceniona na 6600.00 zł.', '/src/assets/creator/Bransoletka/Złoto żółte/2z/krzyż-serce.webp', '2026-06-07 20:10:25.000000'),
+(8, 20, 'Naszyjnik Srebrny Krzyż', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 45 cm i wykorzystuje zawieszkę „krzyż”. Całość została wyceniona na 3900.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/krzyż.webp', '2026-06-07 20:39:35.000000'),
+(5, 5, 'Bransoletka Srebrne Słońce', 'Autorski projekt typu bransoletka, wykonany w materiale Srebro. Projekt ma rozmiar 16 cm i wykorzystuje zawieszkę „słońce”. Całość została wyceniona na 3400.00 zł.', '/src/assets/creator/Bransoletka/Srebro/1z/słońce.webp', '2026-06-07 20:08:20.000000'),
+(10, 28, 'Naszyjnik Różowa Nieskończoność', 'Autorski projekt typu naszyjnik, wykonany w materiale Złoto różowe. Projekt ma rozmiar 40 cm i wykorzystuje zawieszkę „nieskończoność”. Całość została wyceniona na 5800.00 zł.', '/src/assets/creator/Naszyjnik/Złoto różowe/1z/nieskończoność.webp', '2026-06-07 20:56:15.000000'),
+(9, 22, 'Naszyjnik Biała Gwiazda', 'Autorski projekt typu naszyjnik, wykonany w materiale Srebro. Projekt ma rozmiar 40 cm i wykorzystuje zawieszkę „gwiazda”. Całość została wyceniona na 6000.00 zł.', '/src/assets/creator/Naszyjnik/Srebro/1z/gwiazda.webp', '2026-06-07 20:43:45.000000');
 -- Orders
 INSERT INTO Orders (user_id, status, price) VALUES
 (1, 'Oczekujące', 11200.00),
@@ -173,27 +170,86 @@ INSERT INTO Orders (user_id, status, price) VALUES
 
 
 -- Cart
-INSERT INTO Cart (user_id, product_id, project_id, quantity) VALUES
-(1, 1, NULL, 2),
-(2, NULL, 2, 1),
-(3, 3, NULL, 1),
-(4, NULL, 4, 1),
-(5, 5, NULL, 3),
-(6, NULL, 6, 1),
-(7, 7, NULL, 2),
-(8, NULL, 8, 1),
-(9, 9, NULL, 1),
-(10, NULL, 10, 1),
-(11, 11, NULL, 3),
-(12, NULL, 12, 1),
-(13, 13, NULL, 2),
-(14, NULL, 14, 1),
-(15, 15, NULL, 1),
-(16, NULL, 16, 1),
-(17, 17, NULL, 3),
-(18, NULL, 18, 1),
-(19, 19, NULL, 2),
-(20, NULL, 20, 1);
+INSERT INTO Favorites (user_id, product_id, project_id) VALUES
+(1, 2, NULL),
+(1, NULL, 18),
+(1, NULL, 24),
+
+(2, 5, NULL),
+(2, 11, NULL),
+(2, NULL, 7),
+
+(3, NULL, 21),
+(3, 8, NULL),
+(3, NULL, 29),
+
+(4, 1, NULL),
+(4, 12, NULL),
+(4, NULL, 17),
+
+(5, NULL, 19),
+(5, 4, NULL),
+(5, NULL, 27),
+
+(6, 13, NULL),
+(6, NULL, 11),
+(6, 3, NULL),
+
+(7, NULL, 23),
+(7, 6, NULL),
+(7, NULL, 30),
+
+(8, 2, NULL),
+(8, 9, NULL),
+(8, NULL, 15),
+
+(9, NULL, 28),
+(9, 5, NULL),
+(9, NULL, 13),
+
+(10, 1, NULL),
+(10, 7, NULL),
+(10, NULL, 22),
+
+(11, NULL, 25),
+(11, 8, NULL),
+(11, NULL, 5),
+
+(12, 4, NULL),
+(12, 6, NULL),
+(12, NULL, 18),
+
+(13, NULL, 24),
+(13, 2, NULL),
+(13, NULL, 9),
+
+(14, 3, NULL),
+(14, NULL, 26),
+(14, 11, NULL),
+
+(15, NULL, 21),
+(15, 12, NULL),
+(15, NULL, 7),
+
+(16, 1, NULL),
+(16, NULL, 20),
+(16, 5, NULL),
+
+(17, NULL, 14),
+(17, 13, NULL),
+(17, NULL, 23),
+
+(18, 2, NULL),
+(18, NULL, 30),
+(18, 8, NULL),
+
+(19, NULL, 17),
+(19, 4, NULL),
+(19, NULL, 28),
+
+(20, 11, NULL),
+(20, NULL, 19),
+(20, 3, NULL);
 
 
 -- Order_Items

@@ -24,17 +24,17 @@ export default function BlogPostPage() {
 	}, [id]);
 
 	useEffect(() => {
-		async function fetchPost() {
+		let isMounted = true;
+
+		async function loadAll() {
 			try {
 				setLoading(true);
 				setError("");
 
+				// 1. POST
 				const response = await fetch(`http://localhost:8000/posts/${id}`, {
 					headers: {
 						"Content-Type": "application/json",
-						"Access-Control-Allow-Origin": "",
-						"Access-Control-Allow-Methods": "",
-						"Access-Control-Allow-Headers": "*",
 					},
 				});
 
@@ -49,11 +49,11 @@ export default function BlogPostPage() {
 					);
 				}
 
-				const data = await response.json();
+				const postData = await response.json();
 
-				// pobranie projektu
+				// 2. PROJECT (od razu po poście)
 				const projectResponse = await fetch(
-					`http://localhost:8000/projects/${data.project_id}`
+					`http://localhost:8000/projects/${postData.project_id}`
 				);
 
 				if (!projectResponse.ok) {
@@ -62,65 +62,60 @@ export default function BlogPostPage() {
 
 				const project = await projectResponse.json();
 
-				// wzbogacenie posta o autora
 				const enrichedPost = {
-					...data,
+					...postData,
 					author: project.username,
 				};
 
+				if (!isMounted) return;
+
 				setPost(enrichedPost);
-				setProjectImage(data.image_path);
-				setProjectId(data.project_id);
-				setFavCount(data.fav);
-				setError(err.message);
-			} finally {
-				setLoading(false);
-			}
-		}
+				setProjectImage(postData.image_path);
+				setProjectId(postData.project_id);
+				setFavCount(postData.fav);
 
-		fetchPost();
-	}, [id]);
+				// 3. FAVORITES (dopiero gdy mamy projectId)
+				const token = localStorage.getItem("token");
 
-	useEffect(() => {
-		async function loadFavorites() {
-			try {
-				console.log("Ładowanie ulubionych dla projektu:", projectId);
-				const response = await fetch("http://localhost:8000/favorites", {
-					method: "GET",
-					headers: {
-						token: localStorage.getItem("token"),
-						"Access-Control-Allow-Origin": "",
-						"Access-Control-Allow-Methods": "",
-						"Access-Control-Allow-Headers": "*",
-						"Content-Type": "application/json",
-					},
-				});
+				if (token) {
+					const favRes = await fetch("http://localhost:8000/favorites", {
+						method: "GET",
+						headers: {
+							token,
+							"Content-Type": "application/json",
+						},
+					});
 
-				if (!response.ok) {
-					throw new Error("Nie udało się pobrać ulubionych");
+					if (!favRes.ok) {
+						throw new Error("Nie udało się pobrać ulubionych");
+					}
+
+					const favData = await favRes.json();
+
+					const fav = favData.find((f) => f.project_id === postData.project_id);
+
+					if (isMounted) {
+						setIsFavorite(!!fav);
+						setFavoriteId(fav?.favorite_id ?? null);
+					}
 				}
-
-				const data = await response.json();
-
-				console.log(data);
-
-				console.log("Znaleziony ulubiony:", data);
-				const fav = data.find((f) => f.project_id === projectId);
-				if (fav) {
-					setIsFavorite(true);
-					setFavoriteId(fav.favorite_id);
-				} else {
-					setIsFavorite(false);
-					setFavoriteId(null);
-				}
-				console.log("isFavorite ustawione na:", isFavorite);
 			} catch (err) {
-				console.error(err);
+				if (isMounted) {
+					setError(err.message);
+				}
+			} finally {
+				if (isMounted) {
+					setLoading(false);
+				}
 			}
 		}
 
-		loadFavorites();
-	}, [projectId]);
+		loadAll();
+
+		return () => {
+			isMounted = false;
+		};
+	}, [id]);
 
 	const toggleFavorite = async () => {
 		try {
