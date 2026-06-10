@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, Header, HTTPException
+import uuid
 from typing import Annotated
 from sqlalchemy.orm import Session
 from app.db.session import get_db
@@ -30,7 +31,21 @@ def update_user(Token: Annotated[str, Header()], data: UserUpdate, db: Session =
 
 @router.delete("/")
 def delete_user(Token: Annotated[str, Header()], db: Session = Depends(get_db)):
-    user = get_current_user(Token, db)
-    stmt = delete(User).where(User.user_id == user)
+    user_id = get_current_user(Token, db)
+
+    anonymous_username = f"deleted_user_{uuid.uuid4().hex[:8]}"
+    anonymous_email = f"deleted_{uuid.uuid4().hex}@anonymous.local"
+
+    stmt = (
+        update(User)
+        .where(User.user_id == user_id)
+        .values(
+            username=anonymous_username,
+            email=anonymous_email
+        )
+    )
+
     db.execute(stmt)
     db.commit()
+
+    return {"message": "Konto zostało zanonimizowane"}

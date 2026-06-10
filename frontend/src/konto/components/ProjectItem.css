@@ -17,12 +17,16 @@ div.item:hover {
 }
 
 div.item img {
-	width: 100px;
+	width: 150px;
+	height: 120px;
+	object-fit: cover;
+	border-radius: 6px;
+	flex-shrink: 0;
 }
 
 div.item p.title {
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 20px;
 }
 
 div.item p.price {

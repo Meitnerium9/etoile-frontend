@@ -75,7 +75,8 @@
 ========================= */
 .product-right {
 	display: flex;
-	align-items: center; /* 🔥 pionowe wycentrowanie */
+	align-items: center;
+	/* 🔥 pionowe wycentrowanie */
 	justify-content: flex-end;
 	gap: 12px;
 }
@@ -115,4 +116,12 @@
 	text-align: center;
 	border: none;
 	background: transparent;
+}
+
+.cart-koszyk img {
+	width: 150px;
+	height: 120px;
+	object-fit: cover;
+	border-radius: 6px;
+	flex-shrink: 0;
 }

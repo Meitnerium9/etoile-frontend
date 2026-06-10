@@ -5,7 +5,6 @@ from typing import Optional
 
 # Tworzenie posta
 class PostCreate(BaseModel):
-    user_id: int
     project_id: Optional[int] = None
     title: str
     description: str

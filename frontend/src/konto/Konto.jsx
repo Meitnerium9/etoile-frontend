@@ -5,6 +5,7 @@ import "./Konto.css";
 import Ustawienia from "./components/Ustawienia.jsx";
 import ProjectList from "./components/ProjectList.jsx";
 import OrderList from "./components/OrderList.jsx";
+import UserPosts from "./components/UserPosts.jsx";
 
 export default function Konto() {
 	if (localStorage.getItem("token") == null) return <Navigate to="/" replace />;
@@ -16,6 +17,7 @@ export default function Konto() {
 				<nav className="kontoNav">
 					<a href="./ustawienia">Ustawienia</a>
 					<a href="./projekty">Moje projekty</a>
+					<a href="./posty">Moje posty</a>
 					<a href="./zamowienia">Moje zamówienia</a>
 				</nav>
 				<hr />
@@ -23,6 +25,7 @@ export default function Konto() {
 					<Route path="/" element={<Navigate to="info" replace />} />
 					<Route path="ustawienia" element={<Ustawienia />} />
 					<Route path="projekty" element={<ProjectList />} />
+					<Route path="posty" element={<UserPosts />} />
 					<Route path="zamowienia" element={<OrderList />} />
 					<Route path="*" element={<Navigate to="/konto/ustawienia" replace />} />
 				</Routes>

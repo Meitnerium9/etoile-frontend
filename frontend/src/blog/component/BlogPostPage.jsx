@@ -51,11 +51,27 @@ export default function BlogPostPage() {
 
 				const data = await response.json();
 
-				setPost(data);
+				// pobranie projektu
+				const projectResponse = await fetch(
+					`http://localhost:8000/projects/${data.project_id}`
+				);
+
+				if (!projectResponse.ok) {
+					throw new Error("Nie udało się pobrać danych projektu.");
+				}
+
+				const project = await projectResponse.json();
+
+				// wzbogacenie posta o autora
+				const enrichedPost = {
+					...data,
+					author: project.username,
+				};
+
+				setPost(enrichedPost);
 				setProjectImage(data.image_path);
 				setProjectId(data.project_id);
 				setFavCount(data.fav);
-			} catch (err) {
 				setError(err.message);
 			} finally {
 				setLoading(false);
@@ -178,6 +194,9 @@ export default function BlogPostPage() {
 
 			<div className="single-post-header">
 				<h1 className="single-post-title">{post.title}</h1>
+				<Link to={`/blog/user/${post.user_id}`} className="blog-post-author">
+					Autor: {post.author}
+				</Link>
 				{localStorage.getItem("token") && (
 					<button className="favorite-btn" onClick={toggleFavorite}>
 						{favCount}

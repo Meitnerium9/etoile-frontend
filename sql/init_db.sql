@@ -55,7 +55,7 @@ CREATE TABLE Cart (
 
 CREATE TABLE Order_Items (
     order_item_id SERIAL PRIMARY KEY,
-    order_id INT REFERENCES Orders(order_id) ON DELETE CASCADE,
+    order_id INT REFERENCES Orders(order_id),
     product_id INT REFERENCES Products(product_id),
     project_id INT REFERENCES Custom_Projects(project_id),
     quantity INT NOT NULL,

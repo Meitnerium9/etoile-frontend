@@ -1,6 +1,7 @@
 /* Główne style kontenerów strony Ulubionych */
 .fav-page-container {
-	background-color: #f9faf5; /* TUTAJ wpisz kolor bocznych paneli */
+	background-color: #f9faf5;
+	/* TUTAJ wpisz kolor bocznych paneli */
 	width: 100%;
 	min-height: 100vh;
 	padding: 30px 0;
@@ -8,11 +9,15 @@
 
 .fav-layout {
 	display: flex;
-	max-width: 1200px; /* Blokada szerokości podstrony */
-	margin: 0 auto; /* Centrowanie całej zawartości na ekranie */
-	padding: 0 20px; /* Margines bezpieczeństwa dla mniejszych ekranów */
+	max-width: 1200px;
+	/* Blokada szerokości podstrony */
+	margin: 0 auto;
+	/* Centrowanie całej zawartości na ekranie */
+	padding: 0 20px;
+	/* Margines bezpieczeństwa dla mniejszych ekranów */
 	gap: 20px;
-	text-align: left; /* Teksty i wyrównanie sztywno do lewej */
+	text-align: left;
+	/* Teksty i wyrównanie sztywno do lewej */
 }
 
 .fav-main {
@@ -163,6 +168,8 @@
 .fav-preview-box img {
 	max-width: 100%;
 	max-height: 100%;
+	border-radius: 6px;
+	flex-shrink: 0;
 	object-fit: contain;
 }
 
@@ -366,7 +373,8 @@
 }
 
 .fav-btn-etoile.fav-navy:hover {
-	background: #c4ae89; /* Lekko rozjaśniony granat przy najechaniu */
+	background: #c4ae89;
+	/* Lekko rozjaśniony granat przy najechaniu */
 }
 
 /* Dostosowanie responsywności dolnego paska */
@@ -376,6 +384,7 @@
 		gap: 12px;
 		text-align: center;
 	}
+
 	.fav-btn-etoile.fav-navy {
 		width: 100%;
 	}

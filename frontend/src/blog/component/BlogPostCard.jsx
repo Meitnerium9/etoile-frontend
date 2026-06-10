@@ -15,7 +15,9 @@ function BlogPostCard({ post }) {
 				<div className="blog-post-right">
 					<div className="blog-post-header">
 						<h2 className="blog-post-title">{post.title}</h2>
-						<p className="blog-post-author">Autor: {post.author}</p>
+						<Link to={`/blog/user/${post.user_id}`} className="blog-post-author">
+							Autor: {post.author}
+						</Link>
 					</div>
 
 					<p className="blog-post-excerpt">
@@ -29,7 +31,9 @@ function BlogPostCard({ post }) {
 			<Link to={`/blog/${post.post_id}`} className="blog-post-read-more">
 				Czytaj dalej...
 			</Link>
-
+			<p className="user-post-date">
+				{new Date(post.created_at).toLocaleDateString("pl-PL")}
+			</p>
 			<div className="blog-post-divider" />
 		</article>
 	);

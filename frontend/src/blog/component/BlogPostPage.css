@@ -61,6 +61,20 @@
 	text-align: left;
 }
 
+.blog-post-author {
+	margin: 0;
+	font-size: 13px;
+	color: #666;
+	white-space: nowrap;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.blog-post-author:hover {
+	color: #0a1128;
+	text-decoration: underline;
+}
+
 @media (max-width: 700px) {
 	.single-post-title {
 		font-size: 30px;

@@ -51,7 +51,6 @@ function PostCreator() {
 		}
 
 		const newPost = {
-			user_id: 1,
 			project_id: selectedProject.project_id,
 			title,
 			description,
@@ -64,6 +63,7 @@ function PostCreator() {
 			const response = await fetch("http://localhost:8000/posts/", {
 				method: "POST",
 				headers: {
+					token: localStorage.getItem("token"),
 					"Content-Type": "application/json",
 				},
 				body: JSON.stringify(newPost),
