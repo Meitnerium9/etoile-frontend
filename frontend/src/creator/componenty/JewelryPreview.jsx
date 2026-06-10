@@ -1,5 +1,5 @@
 import "./JewelryPreview.css";
-import sampleImage from "../../assets/Sample.png";
+import sampleImage from "../../assets/Sample.webp";
 
 function JewelryPreview({ image }) {
 	return (

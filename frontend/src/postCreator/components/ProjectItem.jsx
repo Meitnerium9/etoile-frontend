@@ -1,5 +1,5 @@
 import "./ProjectItem.css";
-import iconSample from "../../assets/Sample.png";
+import iconSample from "../../assets/Sample.webp";
 
 export default function ProjectItem({ item, selectedProject, onSelectProject }) {
 	async function handleDelete() {

@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import heartIcon from "../../assets/ulubione.png";
-import heartFilledIcon from "../../assets/ulubione-fill.png";
-import cartIcon from "../../assets/cart.png";
+import heartIcon from "../../assets/ulubione.webp";
+import heartFilledIcon from "../../assets/ulubione-fill.webp";
+import cartIcon from "../../assets/cart.webp";
 
 import "./ProductCard.css";
 

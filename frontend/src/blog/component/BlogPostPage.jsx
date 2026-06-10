@@ -203,8 +203,8 @@ export default function BlogPostPage() {
 						<img
 							src={
 								isFavorite
-									? "/src/assets/ulubione-fill.png"
-									: "/src/assets/ulubione.png"
+									? "/src/assets/ulubione-fill.webp"
+									: "/src/assets/ulubione.webp"
 							}
 							alt="ulubione"
 							className="nav-iconFav-img"></img>

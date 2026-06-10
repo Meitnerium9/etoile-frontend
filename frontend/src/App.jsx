@@ -2,8 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import { materials } from "./creator/materialsData.js";
 
-import iconFavourite from "./assets/ulubione.png";
-import iconSample from "./assets/Sample.png";
+import iconFavourite from "./assets/ulubione.webp";
+import iconSample from "./assets/Sample.webp";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { useTitle } from "./main.jsx";

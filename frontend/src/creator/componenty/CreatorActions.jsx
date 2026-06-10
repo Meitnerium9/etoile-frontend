@@ -1,5 +1,5 @@
-import heartIcon from "../../assets/ulubione.png";
-import cartIcon from "../../assets/cart.png";
+import heartIcon from "../../assets/ulubione.webp";
+import cartIcon from "../../assets/cart.webp";
 
 import "./CreatorActions.css";
 

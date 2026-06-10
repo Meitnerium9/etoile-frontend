@@ -1,7 +1,7 @@
-import iconLogo from "../assets/logo.png";
-import iconAcc from "../assets/account.png";
-import iconCart from "../assets/cart.png";
-import iconFavourite from "../assets/ulubione.png";
+import iconLogo from "../assets/logo.webp";
+import iconAcc from "../assets/account.webp";
+import iconCart from "../assets/cart.webp";
+import iconFavourite from "../assets/ulubione.webp";
 import "./Navbar.css";
 
 function Logout() {

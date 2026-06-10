@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import "./Koszyk.css";
-import iconSample from "../assets/Sample.png";
-import iconProt from "../assets/Elogo.png";
+import iconSample from "../assets/Sample.webp";
+import iconProt from "../assets/Elogo.webp";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useTitle } from "../main.jsx";

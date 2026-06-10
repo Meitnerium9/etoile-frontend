@@ -1,5 +1,5 @@
 import React from "react";
-import iconSample from "../../assets/Sample.png";
+import iconSample from "../../assets/Sample.webp";
 
 const FavoritesItem = ({ product, onToggleCheck, onAddToCart }) => {
 	return (
