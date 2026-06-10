@@ -76,8 +76,8 @@ function Creator() {
 		const charmsFolder = isTwoCharms ? "2z" : "1z";
 
 		const fileName = isTwoCharms
-			? `${selectedCharm1}-${selectedCharm2}.png`
-			: `${selectedCharm1}.png`;
+			? `${selectedCharm1}-${selectedCharm2}.webp`
+			: `${selectedCharm1}.webp`;
 
 		return `/src/assets/creator/${jewelryFolder}/${materialFolder}/${charmsFolder}/${fileName}`;
 	};
