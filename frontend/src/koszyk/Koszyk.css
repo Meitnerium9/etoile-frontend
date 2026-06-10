@@ -1,5 +1,5 @@
 #root {
-	/*max-width: 1280px;*/
+	/* max-width: 1280px; */
 	margin: 0 auto;
 	padding: 2rem;
 	text-align: center;
@@ -11,9 +11,11 @@
 	will-change: filter;
 	transition: filter 300ms;
 }
+
 .logo:hover {
 	filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
 	filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -30,4 +32,87 @@
 
 .read-the-docs {
 	color: #888;
+}
+
+.fav-seller-tag {
+	font-size: 12px;
+	color: #666;
+}
+
+/* =========================
+   PRODUCT HEADER (tytuł + autor)
+========================= */
+.product-header {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 2px;
+}
+
+.product-name {
+	margin: 0;
+	font-weight: 600;
+}
+
+.product-seller {
+	font-size: 12px;
+	color: #666;
+	margin: 0;
+}
+
+/* =========================
+   ROW (dolna część produktu)
+========================= */
+.product-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+}
+
+/* =========================
+   RIGHT SIDE (cena + licznik)
+========================= */
+.product-right {
+	display: flex;
+	align-items: center; /* 🔥 pionowe wycentrowanie */
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+/* =========================
+   PRICE
+========================= */
+.price-big {
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+/* =========================
+   QTY PICKER
+========================= */
+.qty-picker {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 4px 8px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	background: #fafafa;
+}
+
+.qty-picker button {
+	width: 28px;
+	height: 28px;
+	border: none;
+	background: #eee;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.qty-picker input {
+	width: 32px;
+	text-align: center;
+	border: none;
+	background: transparent;
 }

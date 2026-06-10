@@ -10,6 +10,17 @@ function OrderList() {
 	const [historyOrders, setHistoryOrders] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState("");
+	const [openOrderId, setOpenOrderId] = useState(null);
+	const toggleOrder = (id) => {
+		setOpenOrderId((prev) => (prev === id ? null : id));
+	};
+	const [currentPage, setCurrentPage] = useState(1);
+	const ordersPerPage = 5;
+
+	const indexOfLast = currentPage * ordersPerPage;
+	const indexOfFirst = indexOfLast - ordersPerPage;
+	const currentOrders = products.slice(indexOfFirst, indexOfLast);
+	const totalPages = Math.ceil(products.length / ordersPerPage);
 
 	useTitle("Etoile - Lista zamówień");
 
@@ -77,6 +88,7 @@ function OrderList() {
 							...item,
 							name: details.name,
 							image: details.image_path,
+							seller: details.username,
 						};
 					})
 				);
@@ -139,7 +151,7 @@ function OrderList() {
 				<div className="ol-main">
 					{/* SEKCJA 1: Bieżąca lista zamówień */}
 					<h1 className="ol-heading">Lista zamówień</h1>
-					<div className="ol-white-card ol-shadow">
+					<div className="ol-orders-list">
 						<div className="ol-delivery-section">
 							{loading && <p>Ładowanie listy...</p>}
 							{error && <p>{error}</p>}
@@ -149,24 +161,57 @@ function OrderList() {
 
 							{!loading &&
 								!error &&
-								products.map((order) => (
-									<div key={order.order_id} className="order-box">
-										<div className="order-header">
+								currentOrders.map((order) => (
+									<div
+										key={order.order_id}
+										className="ol-white-card ol-shadow ol-order-card">
+										<div
+											className="ol-order-header"
+											onClick={() => toggleOrder(order.order_id)}>
 											<h3>Zamówienie #{order.order_id}</h3>
 											<p>Status: {order.status}</p>
 											<p>Suma: {order.price.toFixed(2)} zł</p>
+
+											<span className="ol-toggle">
+												{openOrderId === order.order_id ? "▲" : "▼"}
+											</span>
 										</div>
 
-										{order.items.map((item) => (
-											<OrderListItem
-												key={item.order_item_id}
-												product={item}
-											/>
-										))}
+										{openOrderId === order.order_id && (
+											<div className="ol-order-items">
+												{order.items.map((item) => (
+													<OrderListItem
+														key={item.order_item_id}
+														product={item}
+													/>
+												))}
+											</div>
+										)}
 									</div>
 								))}
 						</div>
 					</div>
+					{totalPages > 1 && (
+						<div className="ol-pagination">
+							<button
+								className="ol-pagination-button"
+								onClick={() => setCurrentPage((p) => p - 1)}
+								disabled={currentPage === 1}>
+								← Poprzednia
+							</button>
+
+							<span className="ol-pagination-info">
+								Strona {currentPage} z {totalPages}
+							</span>
+
+							<button
+								className="ol-pagination-button"
+								onClick={() => setCurrentPage((p) => p + 1)}
+								disabled={currentPage === totalPages}>
+								Następna →
+							</button>
+						</div>
+					)}
 				</div>
 			</div>
 		</div>

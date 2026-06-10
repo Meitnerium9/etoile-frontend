@@ -39,22 +39,27 @@ const ElementKoszyka = ({ produkt, naPlus, naMinus, onToggleCheck }) => (
 		</a>
 
 		<div className="product-info">
-			<p className="product-name">{produkt.nazwa}</p>
+			<div className="product-header">
+				<p className="product-name">{produkt.nazwa}</p>
+				<span className="product-seller">Od: {produkt.seller}</span>
+			</div>
 
 			<div className="product-row">
-				<div className="qty-picker">
-					<button onClick={naMinus} type="button">
-						-
-					</button>
+				<div className="product-left"></div>
 
-					<input type="text" value={produkt.ilosc} readOnly />
+				<div className="product-right">
+					<span className="price-big">{produkt.cena * produkt.ilosc} zł</span>
 
-					<button onClick={naPlus} type="button">
-						+
-					</button>
+					<div className="qty-picker">
+						<button onClick={naMinus} type="button">
+							-
+						</button>
+						<input type="text" value={produkt.ilosc} readOnly />
+						<button onClick={naPlus} type="button">
+							+
+						</button>
+					</div>
 				</div>
-
-				<span className="price-big">{produkt.cena * produkt.ilosc} zł</span>
 			</div>
 		</div>
 	</div>
@@ -68,6 +73,7 @@ const ElementListy = ({ product, onAdd }) => (
 		</a>
 		<p className="price-mid">{product.price} zł</p>
 		<p className="upsell-text">{product.title}</p>
+
 		<button className="add-btn" onClick={() => onAdd(product)}>
 			DO KOSZYKA
 		</button>
@@ -137,6 +143,7 @@ function App() {
 						ilosc: item.quantity,
 						cena: item.price,
 						nazwa: details.name,
+						seller: details.username,
 						image: details.image_path || iconSample, // 🔥 TU JEST KLUCZ
 						checked: false,
 					};

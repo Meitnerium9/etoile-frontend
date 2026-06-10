@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { materials } from "./creator/materialsData.js";
 
 import iconFavourite from "./assets/ulubione.png";
 import iconSample from "./assets/Sample.png";
@@ -39,20 +40,25 @@ function App() {
 				<div className="right-side">
 					<div className="scroll-content">
 						<h2>Wybór materiałów</h2>
-						{
-							<img
-								style={{ marginBottom: "30px" }}
-								src={iconFavourite}
-								alt="Przykład"
-								className="wyb-Sample-img"
-							/>
-						}
+
+						{<img style={{ marginBottom: "30px" }} src={iconFavourite} />}
 						<div
 							style={{
 								height: "1500px",
 								background: "linear-gradient(#f9faf5, #e2e3df)",
 							}}>
 							Przewiń mnie w dół...
+							<div className="favourite-spacer"></div>
+							<div className="materials-list">
+								{materials.map((material) => (
+									<div
+										key={material.id}
+										className="material-card"
+										style={{ background: material.gradient }}>
+										<span className="material-name">{material.name}</span>
+									</div>
+								))}
+							</div>
 						</div>
 					</div>
 				</div>

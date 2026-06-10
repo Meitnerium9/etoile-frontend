@@ -24,7 +24,7 @@ CREATE TABLE Products (
 
 CREATE TABLE Custom_Projects (
     project_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES Users(user_id),
+    user_id INT REFERENCES Users(user_id) ON DELETE SET NULL,
     name VARCHAR(255) NOT NULL,
     image_path VARCHAR(500),
     total_price DECIMAL(10, 2) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE Custom_Projects (
 
 CREATE TABLE Orders (
     order_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES Users(user_id),
+    user_id INT REFERENCES Users(user_id) ON DELETE SET NULL,
     status VARCHAR(50) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     price DECIMAL(10, 2) NOT NULL
@@ -47,7 +47,7 @@ CREATE TABLE Orders (
 -- Tabele z zależnościami 2-go stopnia
 CREATE TABLE Cart (
     cart_item_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES Users(user_id),
+    user_id INT REFERENCES Users(user_id) ON DELETE CASCADE,
     product_id INT REFERENCES Products(product_id),
     project_id INT REFERENCES Custom_Projects(project_id),
     quantity INT NOT NULL DEFAULT 1
@@ -64,7 +64,7 @@ CREATE TABLE Order_Items (
 
 CREATE TABLE Blog_Posts (
     post_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES Users(user_id),
+    user_id INT REFERENCES Users(user_id) ON DELETE SET NULL,
     project_id INT UNIQUE REFERENCES Custom_Projects(project_id), -- UNIQUE robi z tego relację 1:1
     title VARCHAR(255) NOT NULL,
     description TEXT,
@@ -74,7 +74,7 @@ CREATE TABLE Blog_Posts (
 
 CREATE TABLE Favorites (
     favorite_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES Users(user_id),
+    user_id INT REFERENCES Users(user_id) ON DELETE CASCADE,
     product_id INT REFERENCES Products(product_id),
     project_id INT REFERENCES Custom_Projects(project_id)
 );

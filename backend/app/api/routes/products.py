@@ -3,7 +3,8 @@ from sqlalchemy import null
 from sqlalchemy.orm import Session
 from app.db.session import get_db
 from app.models.product import Product
-from app.schemas.product import ProductFilter
+from typing import Optional
+from fastapi import Depends
 
 router = APIRouter()
 @router.get("/")
@@ -18,3 +19,22 @@ def get_product(product_id: int, db: Session = Depends(get_db)):
     price = product.price if product.price else 0
     username = "Etoile_Jewelry"
     return {"name": name, "image_path": image_path, "price": price, "username": username}
+
+@router.get("/filter/")
+def filter_products(
+    category_id: int | None = None,
+    sort: str | None = None,
+    db: Session = Depends(get_db)
+):
+    query = db.query(Product)
+
+    if category_id:
+        query = query.filter(Product.category_id == category_id)
+
+    if sort == "asc":
+        query = query.order_by(Product.price.asc())
+
+    elif sort == "desc":
+        query = query.order_by(Product.price.desc())
+
+    return query.all()

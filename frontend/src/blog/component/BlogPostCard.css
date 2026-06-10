@@ -46,3 +46,18 @@
 	display: flex;
 	flex-direction: column;
 }
+
+.blog-post-header {
+	display: flex;
+	justify-content: space-between; /* 👈 tytuł lewo, autor prawo */
+	align-items: center;
+	margin-bottom: 10px;
+	gap: 12px;
+}
+
+.blog-post-author {
+	margin: 0;
+	font-size: 13px;
+	color: #666;
+	white-space: nowrap; /* 👈 żeby nie zawijało */
+}

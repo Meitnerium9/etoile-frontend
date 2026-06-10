@@ -9,6 +9,7 @@ const OrderListItem = ({ product, onToggleCheck }) => {
 			</a>
 			<div className="product-info">
 				<p>{product.name}</p>
+				<p>Od: {product.seller}</p>
 
 				<p>Ilość: {product.quantity}</p>
 

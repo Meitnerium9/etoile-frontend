@@ -1,14 +1,19 @@
+div.item:last-child {
+	border-bottom: none;
+}
+
 div.item {
 	padding: 20px;
 	display: flex;
 	justify-content: space-between;
 	gap: 30px;
-	width: 100%;
 	align-items: center;
+	background: transparent;
+	border-bottom: 1px solid #f5f5f5;
 }
 
 div.item:hover {
-	background-color: #efefef;
+	background: transparent;
 }
 
 div.item img {
@@ -27,7 +32,7 @@ div.item p.price {
 div.item button {
 	padding: 10px 20px;
 	border: none;
-	border-radius: 0;
+	border-radius: 8px;
 	font-size: 20px;
 }
 
@@ -47,5 +52,4 @@ div.item button.add {
 
 div.item button.add:hover {
 	background-color: #223fa3;
-	color: #fff;
 }

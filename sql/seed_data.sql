@@ -41,19 +41,19 @@ INSERT INTO Categories (name) VALUES
 INSERT INTO Products
 (category_id, name, price, image_path)
 VALUES
-(1, 'Bransoletka Złota Serce', 5600.00, 'src/assets/produkty/Bransoletka1.png'),
-(1, 'Bransoletka Srebrna Gwiazda', 4400.00, 'src/assets/produkty/Bransoletka2.png'),
-(1, 'Bransoletka Różowe Złoto', 5800.00, 'src/assets/produkty/Bransoletka3.png'),
-(1, 'Bransoletka Platynowa Księżyc', 7200.00, 'src/assets/produkty/Bransoletka5.png'),
-(2, 'Naszyjnik Złote Serce', 5600.00, 'src/assets/produkty/Naszyjnik1.png'),
-(3, 'Pierścionek Złoty Classic', 6200.00, 'src/assets/produkty/Pierscionek1.png'),
-(3, 'Pierścionek Białe Złoto', 6600.00, 'src/assets/produkty/Pierscionek2.png'),
-(3, 'Pierścionek Różowe Złoto', 6400.00, 'src/assets/produkty/Pierscionek3.png'),
-(3, 'Pierścionek Platynowy', 8200.00, 'src/assets/produkty/Pierscionek4.png'),
-(3, 'Pierścionek Srebrny', 3600.00, 'src/assets/produkty/Pierscionek5.png'),
-(4, 'Kolczyki Złote Classic', 4200.00, 'src/assets/produkty/ZloteKolczyki.png'),
-(4, 'Kolczyki Złote Elegance', 4600.00, 'src/assets/produkty/ZloteKolczyki2.png'),
-(4, 'Kolczyki Złote Premium', 5200.00, 'src/assets/produkty/ZloteKolczyki3.png');
+(1, 'Bransoletka Złota Serce', 5600.00, '/src/assets/produkty/Bransoletka1.png'),
+(1, 'Bransoletka Srebrna Gwiazda', 4400.00, '/src/assets/produkty/Bransoletka2.png'),
+(1, 'Bransoletka Różowe Złoto', 5800.00, '/src/assets/produkty/Bransoletka3.png'),
+(1, 'Bransoletka Platynowa Księżyc', 7200.00, '/src/assets/produkty/Bransoletka5.png'),
+(2, 'Naszyjnik Złote Serce', 5600.00, '/src/assets/produkty/Naszyjnik1.png'),
+(3, 'Pierścionek Złoty Classic', 6200.00, '/src/assets/produkty/Pierscionek1.png'),
+(3, 'Pierścionek Białe Złoto', 6600.00, '/src/assets/produkty/Pierscionek2.png'),
+(3, 'Pierścionek Różowe Złoto', 6400.00, '/src/assets/produkty/Pierscionek3.png'),
+(3, 'Pierścionek Platynowy', 8200.00, '/src/assets/produkty/Pierscionek4.png'),
+(3, 'Pierścionek Srebrny', 3600.00, '/src/assets/produkty/Pierscionek5.png'),
+(4, 'Kolczyki Złote Classic', 4200.00, '/src/assets/produkty/ZloteKolczyki.png'),
+(4, 'Kolczyki Złote Elegance', 4600.00, '/src/assets/produkty/ZloteKolczyki2.png'),
+(4, 'Kolczyki Złote Premium', 5200.00, '/src/assets/produkty/ZloteKolczyki3.png');
 -- Custom_Projects
 -- 30 przykładowych projektów zgodnych z zasadami kreatora
 --- Naszyjnik ma zawsze jedną zawieszkę.

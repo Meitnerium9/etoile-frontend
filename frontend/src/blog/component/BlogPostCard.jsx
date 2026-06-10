@@ -13,7 +13,10 @@ function BlogPostCard({ post }) {
 				/>
 
 				<div className="blog-post-right">
-					<h2 className="blog-post-title">{post.title}</h2>
+					<div className="blog-post-header">
+						<h2 className="blog-post-title">{post.title}</h2>
+						<p className="blog-post-author">Autor: {post.author}</p>
+					</div>
 
 					<p className="blog-post-excerpt">
 						{post.description?.length > 180
