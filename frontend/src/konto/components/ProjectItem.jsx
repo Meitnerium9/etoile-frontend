@@ -3,17 +3,26 @@ import iconSample from "../../assets/Sample.webp";
 
 export default function ProjectItem({ item }) {
 	async function handleDelete() {
-		await fetch("http://localhost:8000/projects/" + item.project_id, {
-			method: "DELETE",
-			headers: {
-				Token: localStorage.getItem("token"),
-				"Content-Type": "application/json",
-				"Access-Control-Allow-Origin": "",
-				"Access-Control-Allow-Methods": "",
-				"Access-Control-Allow-Headers": "*",
-			},
-		});
-		location.reload();
+		try {
+			const response = await fetch("http://localhost:8000/projects/" + item.project_id, {
+				method: "DELETE",
+				headers: {
+					Token: localStorage.getItem("token"),
+					"Content-Type": "application/json",
+				},
+			});
+
+			const data = await response.json();
+
+			if (!response.ok) {
+				throw new Error(data.detail || "Wystąpił błąd");
+			}
+
+			location.reload();
+		} catch (error) {
+			alert(error.message);
+			console.error(error);
+		}
 	}
 
 	async function addCart() {

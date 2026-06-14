@@ -9,6 +9,7 @@ from app.models.project import CustomProject
 from app.models.user import User
 from app.schemas.project import ProjectCreate
 from app.core.security import get_current_user
+from sqlalchemy.exc import IntegrityError
 from datetime import datetime
 
 router = APIRouter()
@@ -39,8 +40,13 @@ def get_projects(token: Annotated[str | None, Header()] = None, db: Session = De
     return db.query(CustomProject).filter(CustomProject.user_id == user_id).all()
 
 @router.delete("/{project_id}")
-def delete_project(project_id: int, token: Annotated[str | None, Header()] = None, db: Session = Depends(get_db)):
+def delete_project(
+    project_id: int,
+    token: Annotated[str | None, Header()] = None,
+    db: Session = Depends(get_db)
+):
     user_id = get_current_user(token, db)
+
     project = (
         db.query(CustomProject)
         .filter(CustomProject.project_id == project_id)
@@ -50,10 +56,17 @@ def delete_project(project_id: int, token: Annotated[str | None, Header()] = Non
     if not project:
         raise HTTPException(status_code=404, detail="Project not found")
 
-    db.delete(project)
-    db.commit()
+    try:
+        db.delete(project)
+        db.commit()
+        return {"msg": "deleted"}
 
-    return {"msg": "deleted"}
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(
+            status_code=409,
+            detail="Nie można usunąć projektu, ponieważ zawiera powiązane elementy."
+        )
 
 @router.get("/{project_id}")
 def get_project_author(project_id: int, db: Session = Depends(get_db)):
